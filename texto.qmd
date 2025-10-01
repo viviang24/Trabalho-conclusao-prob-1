@@ -1,0 +1,118 @@
+---
+title: "Análise Probabilística da Eficiência de Métodos de Captura de Colêmbolos"
+author: 
+  - "Vivian Germano da Silva"
+  - "Aila Soares Ferreira"
+date: "2025-10-01"
+institute: "Universidade Federal da Paraíba"
+format: html
+---
+
+# Introdução
+
+Este estudo avalia a eficiência dos métodos **Pitfall**, **Aspirador** e **Winkler** na captura de colêmbolos em fragmentos de Mata Atlântica (MTB – Mata do Buraquinho).  
+
+O objetivo é verificar, por meio de **probabilidade condicional** e do **Teorema de Bayes**, qual método apresenta maior afinidade com a espécie dominante **Lepidocyrtinus paraibensis**.
+
+As fórmulas utilizadas são:
+
+- **Probabilidade Condicional:**  
+$$
+P(\text{Método} \mid \text{Espécie}) = \frac{\text{Indivíduos da espécie no método}}{\text{Total da espécie}}
+$$
+
+- **Teorema de Bayes:**  
+$$
+P(\text{Espécie} \mid \text{Método}) = \frac{P(\text{Método} \mid \text{Espécie}) \cdot P(\text{Espécie})}{P(\text{Método})}
+$$
+
+# Resultados: Abundância por método
+
+| Método     | Indivíduos | Probabilidade | Percentual |
+|------------|------------|---------------|------------|
+| Pitfall    | 12382      | 0.9303        | 93.03%     |
+| Aspirador  | 794        | 0.0597        | 5.97%      |
+| Winkler    | 54         | 0.0041        | 0.41%      |
+
+# Resultados: Probabilidade Posterior (Bayes) da espécie **L. paraibensis**
+
+| Método     | Capturas da espécie \(N_E\) | Total método \(N\) | P(E∣H_i) | P(H_i) | P(H_i∣E) | Posterior (%) |
+|------------|-----------------------------|------------------|----------|--------|----------|----------------|
+| Pitfall    | 684                         | 12382            | 0.0553   | 0.9303 | 0.8014   | 80.14%        |
+| Aspirador  | 160                         | 794              | 0.2015   | 0.0597 | 0.1956   | 19.56%        |
+| Winkler    | 16                          | 54               | 0.2963   | 0.0041 | 0.0030   | 0.30%         |
+
+> **Interpretação:** O método mais eficiente para capturar **L. paraibensis** foi **Pitfall**, com 80.14% de probabilidade posterior segundo Bayes.
+
+# Conclusão
+
+- O método **Pitfall** concentrou a grande maioria dos indivíduos coletados.  
+- Mesmo sendo proporcionalmente menos seletivo, o **Teorema de Bayes** indica que Pitfall ainda é o mais confiável para capturar a espécie dominante.  
+- O **Aspirador** aparece como método secundário, enquanto o **Winkler** tem importância marginal para essa espécie.  
+
+# Fórmulas numéricas
+
+- Probabilidade condicional para Pitfall:  
+$$
+P(\text{Pitfall} \mid \text{L. paraibensis}) = \frac{684}{684+160+16} = 0.7736
+$$
+
+- Teorema de Bayes para Pitfall:  
+$$
+P(\text{Pitfall} \mid E) = \frac{0.0553 \cdot 0.9303}{0.0553 \cdot 0.9303 + 0.2015 \cdot 0.0597 + 0.2963 \cdot 0.0041} = 0.8014
+$$
+
+# Códigos Python (para reprodutibilidade)
+
+```bash
+# Cálculo da abundância
+import pandas as pd
+
+abundancia = {"Pitfall": 12382, "Aspirador": 794, "Winkler": 54}
+total = sum(abundancia.values())
+
+df_abundancia = pd.DataFrame({
+    "Método": abundancia.keys(),
+    "Indivíduos": abundancia.values()
+})
+df_abundancia["Probabilidade"] = (df_abundancia["Indivíduos"] / total).round(4)
+df_abundancia["Percentual"] = (df_abundancia["Probabilidade"] * 100).round(2)
+
+print(df_abundancia)
+
+# Cálculo da probabilidade condicional e Bayes
+N_E = {"Pitfall": 684, "Aspirador": 160, "Winkler": 16}
+N_Total = {"Pitfall": 12382, "Aspirador": 794, "Winkler": 54}
+
+df_bayes = pd.DataFrame({
+    "Método": N_E.keys(),
+    "N_E": N_E.values(),
+    "N_Total": N_Total.values()
+})
+
+df_bayes["P(E|H_i)"] = (df_bayes["N_E"] / df_bayes["N_Total"]).round(4)
+df_bayes["P(H_i)"] = (df_bayes["N_Total"] / sum(N_Total.values())).round(4)
+df_bayes["Num"] = df_bayes["P(E|H_i)"] * df_bayes["P(H_i)"]
+df_bayes["P(H_i|E)"] = (df_bayes["Num"] / df_bayes["Num"].sum()).round(4)
+df_bayes["Posterior (%)"] = (df_bayes["P(H_i|E)"]*100).round(2)
+
+print(df_bayes)
+# Monte Carlo para riqueza
+import numpy as np
+
+def monte_carlo_riqueza(n_species=50, n_samples=100, R=1000, seed=42):
+    np.random.seed(seed)
+    riqueza_obs = []
+    for _ in range(R):
+        amostra = np.random.poisson(lam=5, size=(n_samples, n_species))
+        sobs = (amostra.sum(axis=0) > 0).sum()
+        riqueza_obs.append(sobs)
+    return riqueza_obs
+
+riquezas = monte_carlo_riqueza()
+media = np.mean(riquezas)
+ic95 = (np.percentile(riquezas, 2.5), np.percentile(riquezas, 97.5))
+
+print("Riqueza média simulada:", media)
+print("IC95%:", ic95)
+```
