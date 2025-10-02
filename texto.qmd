@@ -1,6 +1,6 @@
 ---
 title: "Análise Probabilística da Eficiência de Métodos de Captura de Colêmbolos"
-author: 
+author:
   - "Vivian Germano da Silva"
   - "Aila Soares Ferreira"
 date: "2025-10-01"
@@ -10,109 +10,155 @@ format: html
 
 # Introdução
 
-Este estudo avalia a eficiência dos métodos **Pitfall**, **Aspirador** e **Winkler** na captura de colêmbolos em fragmentos de Mata Atlântica (MTB – Mata do Buraquinho).  
+Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — **Pitfall**, **Aspirador** e **Winkler** — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e o Teorema de Bayes para avaliar a afinidade de espécies pelos métodos e indicar o método mais provável responsável pelas capturas observadas.  
 
-O objetivo é verificar, por meio de **probabilidade condicional** e do **Teorema de Bayes**, qual método apresenta maior afinidade com a espécie dominante **Lepidocyrtinus paraibensis**.
+**O objetivo deste estudo** é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à **Ecologia e Conservação da fauna de solo (Collembola)**, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.
 
-As fórmulas utilizadas são:
+As fórmulas fundamentais utilizadas são:
 
-- **Probabilidade Condicional:**  
+## Probabilidade condicional (verossimilhança)
+
 $$
-P(\text{Método} \mid \text{Espécie}) = \frac{\text{Indivíduos da espécie no método}}{\text{Total da espécie}}
-$$
-
-- **Teorema de Bayes:**  
-$$
-P(\text{Espécie} \mid \text{Método}) = \frac{P(\text{Método} \mid \text{Espécie}) \cdot P(\text{Espécie})}{P(\text{Método})}
+P(E \mid H) = \dfrac{\text{número de indivíduos da espécie }E\text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
 $$
 
-# Resultados: Abundância por método
+## Teorema de Bayes (posterior do método dado a ocorrência da espécie)
 
-| Método     | Indivíduos | Probabilidade | Percentual |
-|------------|------------|---------------|------------|
-| Pitfall    | 12382      | 0.9303        | 93.03%     |
-| Aspirador  | 794        | 0.0597        | 5.97%      |
-| Winkler    | 54         | 0.0041        | 0.41%      |
+$$
+P(H \mid E) = \dfrac{P(E \mid H)\,P(H)}{\sum_{j} P(E \mid H_j)\,P(H_j)}
+$$
 
-# Resultados: Probabilidade Posterior (Bayes) da espécie **L. paraibensis**
+onde $P(H)$ é a probabilidade a priori do método $H$ (proporção dos indivíduos totais coletados por esse método).
 
-| Método     | Capturas da espécie \(N_E\) | Total método \(N\) | P(E∣H_i) | P(H_i) | P(H_i∣E) | Posterior (%) |
-|------------|-----------------------------|------------------|----------|--------|----------|----------------|
-| Pitfall    | 684                         | 12382            | 0.0553   | 0.9303 | 0.8014   | 80.14%        |
-| Aspirador  | 160                         | 794              | 0.2015   | 0.0597 | 0.1956   | 19.56%        |
-| Winkler    | 16                          | 54               | 0.2963   | 0.0041 | 0.0030   | 0.30%         |
+---
 
-> **Interpretação:** O método mais eficiente para capturar **L. paraibensis** foi **Pitfall**, com 80.14% de probabilidade posterior segundo Bayes.
+# Probabilidade de captura por método
+
+Probabilidades baseadas na riqueza de espécies (presença/ausência).
+
+Totais por método (número de espécies/riqueza) foram:
+
+- Pitfall: 38  
+- Aspirador: 16  
+- Winkler: 20  
+- Total de espécies: 43
+
+Assim, as probabilidades de uma espécie ser capturada por cada método são:
+
+$$
+P(\text{Pitfall}) = \frac{38}{43} \approx 0.8837
+$$
+
+$$
+P(\text{Aspirador}) = \frac{16}{43} \approx 0.3721
+$$
+
+$$
+P(\text{Winkler}) = \frac{20}{43} \approx 0.4651
+$$
+
+---
+
+# Espécies mais abundantes
+
+A seguir, apresentamos as dez espécies com maior abundância consolidada nas três metodologias (Pitfall, Aspirador, Winkler). Esses totais foram extraídos diretamente da planilha de campo e servem de base para a escolha das espécies a serem submetidas à análise probabilística.
+
+| Espécie                      | Pitfall | Aspirador | Winkler | Total Geral |
+|------------------------------:|--------:|---------:|--------:|------------:|
+| *Lepidocyrtus* sp.n.5        | 7798    | 0        | 2       | 7800        |
+| *Lepidocyrtinus paraibensis* | 2946    | 474      | 42      | 3462        |
+| *Lepidocyrtus* sp.n.4        | 1024    | 0        | 0       | 1024        |
+| *Trogolaphysa formosensis*   | 600     | 46       | 0       | 646         |
+| *Brachystomella agrosa*      | 254     | 4        | 2       | 260         |
+| *Salina brasiliana*          | 160     | 96       | 0       | 256         |
+| *Calvatomina* sp.1           | 182     | 6        | 0       | 188         |
+| *Trogolaphysa cf. ernesti*   | 84      | 52       | 0       | 136         |
+| *Sphaeridia* sp.1            | 116     | 0        | 2       | 118         |
+| *Rhynchocyrtus* sp.n.1       | 90      | 0        | 0       | 90          |
+
+Para a análise probabilística, escolhemos três espécies representativas (as de maior abundância consolidada):  
+
+1. *Lepidocyrtus* sp.n.5  
+2. *Lepidocyrtinus paraibensis*  
+3. *Lepidocyrtus* sp.n.4  
+
+---
+
+# Cálculo das probabilidades condicionais $P(E\mid H)$
+
+Lembrete: 
+
+$$
+P(E\mid H) = \frac{N_{E\ \text{no método}}}{N_{\text{método}}}.
+$$
+
+## 1) *Lepidocyrtus* sp.n.5 (Total = 7.800)
+
+| Método   | $N_E$ | $P(E\mid H)$ |
+|---------:|------:|-------------:|
+| Pitfall  | 7798  | $7798 / 12382 \approx 0.6298$ |
+| Aspirador| 0     | $0 / 794 = 0.0000$ |
+| Winkler  | 2     | $2 / 54 \approx 0.0370$ |
+
+## 2) *Lepidocyrtinus paraibensis* (Total = 3.462)
+
+| Método   | $N_E$ | $P(E\mid H)$ |
+|---------:|------:|-------------:|
+| Pitfall  | 2946  | $2946 / 12382 \approx 0.2379$ |
+| Aspirador| 474   | $474 / 794 \approx 0.5970$ |
+| Winkler  | 42    | $42 / 54 \approx 0.7778$ |
+
+## 3) *Lepidocyrtus* sp.n.4 (Total = 1.024)
+
+| Método   | $N_E$ | $P(E\mid H)$ |
+|---------:|------:|-------------:|
+| Pitfall  | 1024  | $1024 / 12382 \approx 0.0827$ |
+| Aspirador| 0     | $0 / 794 = 0.0000$ |
+| Winkler  | 0     | $0 / 54 = 0.0000$ |
+
+---
+
+# Aplicação do Teorema de Bayes
+
+Para ilustrar a inferência Bayesiana, escolhemos *Lepidocyrtinus paraibensis*.  
+
+Usamos as verossimilhanças $P(E\mid H)$ da seção anterior e as priors $P(H)$ já calculadas.
+
+Cálculo (valores arredondados):
+
+- Numerador (Pitfall): $0.2379 \times 0.9359 \approx 0.2227$  
+- Numerador (Aspirador): $0.5970 \times 0.0600 \approx 0.0358$  
+- Numerador (Winkler): $0.7778 \times 0.0041 \approx 0.0032$  
+
+Denominador (soma dos numeradores):
+
+$$
+0.2227 + 0.0358 + 0.0032 \approx 0.2617
+$$
+
+Posterior para cada método:
+
+$$
+P(\text{Pitfall}\mid E) \approx \frac{0.2227}{0.2617} \approx 0.85 \quad (85\%)
+$$
+
+$$
+P(\text{Aspirador}\mid E) \approx \frac{0.0358}{0.2617} \approx 0.14 \quad (14\%)
+$$
+
+$$
+P(\text{Winkler}\mid E) \approx \frac{0.0032}{0.2617} \approx 0.01 \quad (1\%)
+$$
+
+---
 
 # Conclusão
 
-- O método **Pitfall** concentrou a grande maioria dos indivíduos coletados.  
-- Mesmo sendo proporcionalmente menos seletivo, o **Teorema de Bayes** indica que Pitfall ainda é o mais confiável para capturar a espécie dominante.  
-- O **Aspirador** aparece como método secundário, enquanto o **Winkler** tem importância marginal para essa espécie.  
+Os resultados demonstram que a integração entre probabilidade condicional e Teorema de Bayes permite uma avaliação mais completa da eficiência dos métodos de captura.  
 
-# Fórmulas numéricas
+No caso da espécie *Lepidocyrtinus paraibensis*, a análise bayesiana indicou que o método **Pitfall** apresenta a maior probabilidade posterior de captura (aproximadamente 85%).  
 
-- Probabilidade condicional para Pitfall:  
-$$
-P(\text{Pitfall} \mid \text{L. paraibensis}) = \frac{684}{684+160+16} = 0.7736
-$$
+Apesar de o método Winkler ter exibido uma alta proporção relativa da espécie, sua baixa representatividade no total de indivíduos reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente entre os três avaliados, considerando tanto a abundância absoluta quanto a análise probabilística.
 
-- Teorema de Bayes para Pitfall:  
-$$
-P(\text{Pitfall} \mid E) = \frac{0.0553 \cdot 0.9303}{0.0553 \cdot 0.9303 + 0.2015 \cdot 0.0597 + 0.2963 \cdot 0.0041} = 0.8014
-$$
 
-# Códigos Python (para reprodutibilidade)
 
-```bash
-# Cálculo da abundância
-import pandas as pd
-
-abundancia = {"Pitfall": 12382, "Aspirador": 794, "Winkler": 54}
-total = sum(abundancia.values())
-
-df_abundancia = pd.DataFrame({
-    "Método": abundancia.keys(),
-    "Indivíduos": abundancia.values()
-})
-df_abundancia["Probabilidade"] = (df_abundancia["Indivíduos"] / total).round(4)
-df_abundancia["Percentual"] = (df_abundancia["Probabilidade"] * 100).round(2)
-
-print(df_abundancia)
-
-# Cálculo da probabilidade condicional e Bayes
-N_E = {"Pitfall": 684, "Aspirador": 160, "Winkler": 16}
-N_Total = {"Pitfall": 12382, "Aspirador": 794, "Winkler": 54}
-
-df_bayes = pd.DataFrame({
-    "Método": N_E.keys(),
-    "N_E": N_E.values(),
-    "N_Total": N_Total.values()
-})
-
-df_bayes["P(E|H_i)"] = (df_bayes["N_E"] / df_bayes["N_Total"]).round(4)
-df_bayes["P(H_i)"] = (df_bayes["N_Total"] / sum(N_Total.values())).round(4)
-df_bayes["Num"] = df_bayes["P(E|H_i)"] * df_bayes["P(H_i)"]
-df_bayes["P(H_i|E)"] = (df_bayes["Num"] / df_bayes["Num"].sum()).round(4)
-df_bayes["Posterior (%)"] = (df_bayes["P(H_i|E)"]*100).round(2)
-
-print(df_bayes)
-# Monte Carlo para riqueza
-import numpy as np
-
-def monte_carlo_riqueza(n_species=50, n_samples=100, R=1000, seed=42):
-    np.random.seed(seed)
-    riqueza_obs = []
-    for _ in range(R):
-        amostra = np.random.poisson(lam=5, size=(n_samples, n_species))
-        sobs = (amostra.sum(axis=0) > 0).sum()
-        riqueza_obs.append(sobs)
-    return riqueza_obs
-
-riquezas = monte_carlo_riqueza()
-media = np.mean(riquezas)
-ic95 = (np.percentile(riquezas, 2.5), np.percentile(riquezas, 97.5))
-
-print("Riqueza média simulada:", media)
-print("IC95%:", ic95)
-```

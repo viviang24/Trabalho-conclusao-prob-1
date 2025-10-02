@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -156,185 +121,280 @@ window.Quarto = {
 
 <section id="introdução" class="level1">
 <h1>Introdução</h1>
-<p>Este estudo avalia a eficiência dos métodos <strong>Pitfall</strong>, <strong>Aspirador</strong> e <strong>Winkler</strong> na captura de colêmbolos em fragmentos de Mata Atlântica (MTB – Mata do Buraquinho).</p>
-<p>O objetivo é verificar, por meio de <strong>probabilidade condicional</strong> e do <strong>Teorema de Bayes</strong>, qual método apresenta maior afinidade com a espécie dominante <strong>Lepidocyrtinus paraibensis</strong>.</p>
-<p>As fórmulas utilizadas são:</p>
+<p>Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — <strong>Pitfall</strong>, <strong>Aspirador</strong> e <strong>Winkler</strong> — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e o Teorema de Bayes para avaliar a afinidade de espécies pelos métodos e indicar o método mais provável responsável pelas capturas observadas.</p>
+<p><strong>O objetivo deste estudo</strong> é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à <strong>Ecologia e Conservação da fauna de solo (Collembola)</strong>, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.</p>
+<p>As fórmulas fundamentais utilizadas são:</p>
+<section id="probabilidade-condicional-verossimilhança" class="level2">
+<h2 class="anchored" data-anchor-id="probabilidade-condicional-verossimilhança">Probabilidade condicional (verossimilhança)</h2>
+<p><span class="math display">\[
+P(E \mid H) = \dfrac{\text{número de indivíduos da espécie }E\text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
+\]</span></p>
+</section>
+<section id="teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie" class="level2">
+<h2 class="anchored" data-anchor-id="teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie">Teorema de Bayes (posterior do método dado a ocorrência da espécie)</h2>
+<p><span class="math display">\[
+P(H \mid E) = \dfrac{P(E \mid H)\,P(H)}{\sum_{j} P(E \mid H_j)\,P(H_j)}
+\]</span></p>
+<p>onde <span class="math inline">\(P(H)\)</span> é a probabilidade a priori do método <span class="math inline">\(H\)</span> (proporção dos indivíduos totais coletados por esse método).</p>
+<hr>
+</section>
+</section>
+<section id="probabilidade-de-captura-por-método" class="level1">
+<h1>Probabilidade de captura por método</h1>
+<p>Probabilidades baseadas na riqueza de espécies (presença/ausência).</p>
+<p>Totais por método (número de espécies/riqueza) foram:</p>
 <ul>
-<li><p><strong>Probabilidade Condicional:</strong><br>
-<span class="math display">\[
-P(\text{Método} \mid \text{Espécie}) = \frac{\text{Indivíduos da espécie no método}}{\text{Total da espécie}}
-\]</span></p></li>
-<li><p><strong>Teorema de Bayes:</strong><br>
-<span class="math display">\[
-P(\text{Espécie} \mid \text{Método}) = \frac{P(\text{Método} \mid \text{Espécie}) \cdot P(\text{Espécie})}{P(\text{Método})}
-\]</span></p></li>
+<li>Pitfall: 38<br>
+</li>
+<li>Aspirador: 16<br>
+</li>
+<li>Winkler: 20<br>
+</li>
+<li>Total de espécies: 43</li>
 </ul>
+<p>Assim, as probabilidades de uma espécie ser capturada por cada método são:</p>
+<p><span class="math display">\[
+P(\text{Pitfall}) = \frac{38}{43} \approx 0.8837
+\]</span></p>
+<p><span class="math display">\[
+P(\text{Aspirador}) = \frac{16}{43} \approx 0.3721
+\]</span></p>
+<p><span class="math display">\[
+P(\text{Winkler}) = \frac{20}{43} \approx 0.4651
+\]</span></p>
+<hr>
 </section>
-<section id="resultados-abundância-por-método" class="level1">
-<h1>Resultados: Abundância por método</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Método</th>
-<th>Indivíduos</th>
-<th>Probabilidade</th>
-<th>Percentual</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Pitfall</td>
-<td>12382</td>
-<td>0.9303</td>
-<td>93.03%</td>
-</tr>
-<tr class="even">
-<td>Aspirador</td>
-<td>794</td>
-<td>0.0597</td>
-<td>5.97%</td>
-</tr>
-<tr class="odd">
-<td>Winkler</td>
-<td>54</td>
-<td>0.0041</td>
-<td>0.41%</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="resultados-probabilidade-posterior-bayes-da-espécie-l.-paraibensis" class="level1">
-<h1>Resultados: Probabilidade Posterior (Bayes) da espécie <strong>L. paraibensis</strong></h1>
+<section id="espécies-mais-abundantes" class="level1">
+<h1>Espécies mais abundantes</h1>
+<p>A seguir, apresentamos as dez espécies com maior abundância consolidada nas três metodologias (Pitfall, Aspirador, Winkler). Esses totais foram extraídos diretamente da planilha de campo e servem de base para a escolha das espécies a serem submetidas à análise probabilística.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 28%">
-<col style="width: 17%">
-<col style="width: 9%">
-<col style="width: 7%">
-<col style="width: 9%">
-<col style="width: 15%">
+<col style="width: 43%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Método</th>
-<th>Capturas da espécie (N_E)</th>
-<th>Total método (N)</th>
-<th>P(E∣H_i)</th>
-<th>P(H_i)</th>
-<th>P(H_i∣E)</th>
-<th>Posterior (%)</th>
+<th style="text-align: right;">Espécie</th>
+<th style="text-align: right;">Pitfall</th>
+<th style="text-align: right;">Aspirador</th>
+<th style="text-align: right;">Winkler</th>
+<th style="text-align: right;">Total Geral</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Pitfall</td>
-<td>684</td>
-<td>12382</td>
-<td>0.0553</td>
-<td>0.9303</td>
-<td>0.8014</td>
-<td>80.14%</td>
+<td style="text-align: right;"><em>Lepidocyrtus</em> sp.n.5</td>
+<td style="text-align: right;">7798</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7800</td>
 </tr>
 <tr class="even">
-<td>Aspirador</td>
-<td>160</td>
-<td>794</td>
-<td>0.2015</td>
-<td>0.0597</td>
-<td>0.1956</td>
-<td>19.56%</td>
+<td style="text-align: right;"><em>Lepidocyrtinus paraibensis</em></td>
+<td style="text-align: right;">2946</td>
+<td style="text-align: right;">474</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">3462</td>
 </tr>
 <tr class="odd">
-<td>Winkler</td>
-<td>16</td>
-<td>54</td>
-<td>0.2963</td>
-<td>0.0041</td>
-<td>0.0030</td>
-<td>0.30%</td>
+<td style="text-align: right;"><em>Lepidocyrtus</em> sp.n.4</td>
+<td style="text-align: right;">1024</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1024</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><em>Trogolaphysa formosensis</em></td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">646</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><em>Brachystomella agrosa</em></td>
+<td style="text-align: right;">254</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">260</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><em>Salina brasiliana</em></td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">256</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><em>Calvatomina</em> sp.1</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><em>Trogolaphysa cf.&nbsp;ernesti</em></td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">136</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><em>Sphaeridia</em> sp.1</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">118</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><em>Rhynchocyrtus</em> sp.n.1</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">90</td>
 </tr>
 </tbody>
 </table>
-<blockquote class="blockquote">
-<p><strong>Interpretação:</strong> O método mais eficiente para capturar <strong>L. paraibensis</strong> foi <strong>Pitfall</strong>, com 80.14% de probabilidade posterior segundo Bayes.</p>
-</blockquote>
+<p>Para a análise probabilística, escolhemos três espécies representativas (as de maior abundância consolidada):</p>
+<ol type="1">
+<li><em>Lepidocyrtus</em> sp.n.5<br>
+</li>
+<li><em>Lepidocyrtinus paraibensis</em><br>
+</li>
+<li><em>Lepidocyrtus</em> sp.n.4</li>
+</ol>
+<hr>
+</section>
+<section id="cálculo-das-probabilidades-condicionais-pemid-h" class="level1">
+<h1>Cálculo das probabilidades condicionais <span class="math inline">\(P(E\mid H)\)</span></h1>
+<p>Lembrete:</p>
+<p><span class="math display">\[
+P(E\mid H) = \frac{N_{E\ \text{no método}}}{N_{\text{método}}}.
+\]</span></p>
+<section id="lepidocyrtus-sp.n.5-total-7.800" class="level2">
+<h2 class="anchored" data-anchor-id="lepidocyrtus-sp.n.5-total-7.800">1) <em>Lepidocyrtus</em> sp.n.5 (Total = 7.800)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Método</th>
+<th style="text-align: right;"><span class="math inline">\(N_E\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(P(E\mid H)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Pitfall</td>
+<td style="text-align: right;">7798</td>
+<td style="text-align: right;"><span class="math inline">\(7798 / 12382 \approx 0.6298\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Aspirador</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><span class="math inline">\(0 / 794 = 0.0000\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Winkler</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><span class="math inline">\(2 / 54 \approx 0.0370\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lepidocyrtinus-paraibensis-total-3.462" class="level2">
+<h2 class="anchored" data-anchor-id="lepidocyrtinus-paraibensis-total-3.462">2) <em>Lepidocyrtinus paraibensis</em> (Total = 3.462)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Método</th>
+<th style="text-align: right;"><span class="math inline">\(N_E\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(P(E\mid H)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Pitfall</td>
+<td style="text-align: right;">2946</td>
+<td style="text-align: right;"><span class="math inline">\(2946 / 12382 \approx 0.2379\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Aspirador</td>
+<td style="text-align: right;">474</td>
+<td style="text-align: right;"><span class="math inline">\(474 / 794 \approx 0.5970\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Winkler</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;"><span class="math inline">\(42 / 54 \approx 0.7778\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lepidocyrtus-sp.n.4-total-1.024" class="level2">
+<h2 class="anchored" data-anchor-id="lepidocyrtus-sp.n.4-total-1.024">3) <em>Lepidocyrtus</em> sp.n.4 (Total = 1.024)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Método</th>
+<th style="text-align: right;"><span class="math inline">\(N_E\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(P(E\mid H)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Pitfall</td>
+<td style="text-align: right;">1024</td>
+<td style="text-align: right;"><span class="math inline">\(1024 / 12382 \approx 0.0827\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Aspirador</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><span class="math inline">\(0 / 794 = 0.0000\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Winkler</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><span class="math inline">\(0 / 54 = 0.0000\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="aplicação-do-teorema-de-bayes" class="level1">
+<h1>Aplicação do Teorema de Bayes</h1>
+<p>Para ilustrar a inferência Bayesiana, escolhemos <em>Lepidocyrtinus paraibensis</em>.</p>
+<p>Usamos as verossimilhanças <span class="math inline">\(P(E\mid H)\)</span> da seção anterior e as priors <span class="math inline">\(P(H)\)</span> já calculadas.</p>
+<p>Cálculo (valores arredondados):</p>
+<ul>
+<li>Numerador (Pitfall): <span class="math inline">\(0.2379 \times 0.9359 \approx 0.2227\)</span><br>
+</li>
+<li>Numerador (Aspirador): <span class="math inline">\(0.5970 \times 0.0600 \approx 0.0358\)</span><br>
+</li>
+<li>Numerador (Winkler): <span class="math inline">\(0.7778 \times 0.0041 \approx 0.0032\)</span></li>
+</ul>
+<p>Denominador (soma dos numeradores):</p>
+<p><span class="math display">\[
+0.2227 + 0.0358 + 0.0032 \approx 0.2617
+\]</span></p>
+<p>Posterior para cada método:</p>
+<p><span class="math display">\[
+P(\text{Pitfall}\mid E) \approx \frac{0.2227}{0.2617} \approx 0.85 \quad (85\%)
+\]</span></p>
+<p><span class="math display">\[
+P(\text{Aspirador}\mid E) \approx \frac{0.0358}{0.2617} \approx 0.14 \quad (14\%)
+\]</span></p>
+<p><span class="math display">\[
+P(\text{Winkler}\mid E) \approx \frac{0.0032}{0.2617} \approx 0.01 \quad (1\%)
+\]</span></p>
+<hr>
 </section>
 <section id="conclusão" class="level1">
 <h1>Conclusão</h1>
-<ul>
-<li>O método <strong>Pitfall</strong> concentrou a grande maioria dos indivíduos coletados.<br>
-</li>
-<li>Mesmo sendo proporcionalmente menos seletivo, o <strong>Teorema de Bayes</strong> indica que Pitfall ainda é o mais confiável para capturar a espécie dominante.<br>
-</li>
-<li>O <strong>Aspirador</strong> aparece como método secundário, enquanto o <strong>Winkler</strong> tem importância marginal para essa espécie.</li>
-</ul>
-</section>
-<section id="fórmulas-numéricas" class="level1">
-<h1>Fórmulas numéricas</h1>
-<ul>
-<li><p>Probabilidade condicional para Pitfall:<br>
-<span class="math display">\[
-P(\text{Pitfall} \mid \text{L. paraibensis}) = \frac{684}{684+160+16} = 0.7736
-\]</span></p></li>
-<li><p>Teorema de Bayes para Pitfall:<br>
-<span class="math display">\[
-P(\text{Pitfall} \mid E) = \frac{0.0553 \cdot 0.9303}{0.0553 \cdot 0.9303 + 0.2015 \cdot 0.0597 + 0.2963 \cdot 0.0041} = 0.8014
-\]</span></p></li>
-</ul>
-</section>
-<section id="códigos-python-para-reprodutibilidade" class="level1">
-<h1>Códigos Python (para reprodutibilidade)</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo da abundância</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> pandas as pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">abundancia</span> = {<span class="st">"Pitfall"</span>: 12382, <span class="st">"Aspirador"</span>: 794, <span class="st">"Winkler"</span>: 54}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> = sum<span class="er">(</span><span class="fu">abundancia.values()</span><span class="kw">)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">df_abundancia</span> = pd.DataFrame<span class="er">(</span><span class="kw">{</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Método"</span><span class="ex">:</span> abundancia.keys<span class="er">(</span><span class="kw">)</span><span class="ex">,</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Indivíduos"</span><span class="ex">:</span> abundancia.values<span class="er">(</span><span class="kw">)</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">})</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="va">df_abundancia</span><span class="op">[</span><span class="st">"Probabilidade"</span><span class="op">]</span> <span class="ex">=</span> <span class="er">(</span><span class="va">df_abundancia</span><span class="op">[</span><span class="st">"Indivíduos"</span><span class="op">]</span> <span class="ex">/</span> total<span class="kw">)</span><span class="ex">.round</span><span class="er">(</span><span class="ex">4</span><span class="kw">)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="va">df_abundancia</span><span class="op">[</span><span class="st">"Percentual"</span><span class="op">]</span> <span class="ex">=</span> <span class="er">(</span><span class="va">df_abundancia</span><span class="op">[</span><span class="st">"Probabilidade"</span><span class="op">]</span> <span class="ex">*</span> 100<span class="kw">)</span><span class="ex">.round</span><span class="er">(</span><span class="ex">2</span><span class="kw">)</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="ex">df_abundancia</span><span class="kw">)</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo da probabilidade condicional e Bayes</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">N_E</span> = {<span class="st">"Pitfall"</span>: 684, <span class="st">"Aspirador"</span>: 160, <span class="st">"Winkler"</span>: 16}</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ex">N_Total</span> = {<span class="st">"Pitfall"</span>: 12382, <span class="st">"Aspirador"</span>: 794, <span class="st">"Winkler"</span>: 54}</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ex">df_bayes</span> = pd.DataFrame<span class="er">(</span><span class="kw">{</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Método"</span><span class="ex">:</span> N_E.keys<span class="er">(</span><span class="kw">)</span><span class="ex">,</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N_E"</span><span class="ex">:</span> N_E.values<span class="er">(</span><span class="kw">)</span><span class="ex">,</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N_Total"</span><span class="ex">:</span> N_Total.values<span class="er">(</span><span class="kw">)</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">})</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="va">df_bayes</span><span class="op">[</span><span class="st">"P(E|H_i)"</span><span class="op">]</span> <span class="ex">=</span> <span class="er">(</span><span class="va">df_bayes</span><span class="op">[</span><span class="st">"N_E"</span><span class="op">]</span> <span class="ex">/</span> df_bayes<span class="pp">[</span><span class="st">"N_Total"</span><span class="pp">]</span><span class="kw">)</span><span class="ex">.round</span><span class="er">(</span><span class="ex">4</span><span class="kw">)</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="va">df_bayes</span><span class="op">[</span><span class="st">"P(H_i)"</span><span class="op">]</span> <span class="ex">=</span> <span class="er">(</span><span class="va">df_bayes</span><span class="op">[</span><span class="st">"N_Total"</span><span class="op">]</span> <span class="ex">/</span> sum<span class="er">(</span><span class="fu">N_Total.values()</span><span class="kw">))</span><span class="ex">.round</span><span class="er">(</span><span class="ex">4</span><span class="kw">)</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="va">df_bayes</span><span class="op">[</span><span class="st">"Num"</span><span class="op">]</span> <span class="ex">=</span> df_bayes<span class="pp">[</span><span class="st">"P(E|H_i)"</span><span class="pp">]</span> <span class="pp">*</span> df_bayes<span class="pp">[</span><span class="st">"P(H_i)"</span><span class="pp">]</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="va">df_bayes</span><span class="op">[</span><span class="st">"P(H_i|E)"</span><span class="op">]</span> <span class="ex">=</span> <span class="er">(</span><span class="va">df_bayes</span><span class="op">[</span><span class="st">"Num"</span><span class="op">]</span> <span class="ex">/</span> df_bayes<span class="pp">[</span><span class="st">"Num"</span><span class="pp">]</span>.sum<span class="er">(</span><span class="kw">))</span><span class="ex">.round</span><span class="er">(</span><span class="ex">4</span><span class="kw">)</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="va">df_bayes</span><span class="op">[</span><span class="st">"Posterior (%)"</span><span class="op">]</span> <span class="ex">=</span> <span class="er">(</span><span class="va">df_bayes</span><span class="op">[</span><span class="st">"P(H_i|E)"</span><span class="op">]</span><span class="ex">*100</span><span class="kw">)</span><span class="ex">.round</span><span class="er">(</span><span class="ex">2</span><span class="kw">)</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="ex">df_bayes</span><span class="kw">)</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Monte Carlo para riqueza</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> numpy as np</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ex">def</span> monte_carlo_riqueza<span class="er">(</span><span class="va">n_species</span><span class="op">=</span>50, <span class="va">n_samples</span><span class="op">=</span>100, <span class="va">R</span><span class="op">=</span>1000, <span class="va">seed</span><span class="op">=</span>42<span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="ex">np.random.seed</span><span class="er">(</span><span class="ex">seed</span><span class="kw">)</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="ex">riqueza_obs</span> = []</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> range<span class="er">(</span><span class="ex">R</span><span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="ex">amostra</span> = np.random.poisson<span class="er">(</span><span class="va">lam</span><span class="op">=</span>5, <span class="va">size</span><span class="op">=</span><span class="va">(</span>n_samples, n_species<span class="va">)</span><span class="kw">)</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="ex">sobs</span> = <span class="er">(</span><span class="ex">amostra.sum</span><span class="er">(</span><span class="va">axis</span><span class="op">=</span>0<span class="kw">)</span> <span class="op">&gt;</span> 0<span class="kw">)</span><span class="fu">.sum()</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="ex">riqueza_obs.append</span><span class="er">(</span><span class="ex">sobs</span><span class="kw">)</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ex">riqueza_obs</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ex">riquezas</span> = monte_carlo_riqueza<span class="er">(</span><span class="kw">)</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ex">media</span> = np.mean<span class="er">(</span><span class="ex">riquezas</span><span class="kw">)</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ex">ic95</span> = <span class="er">(</span><span class="ex">np.percentile</span><span class="er">(</span><span class="ex">riquezas,</span> 2.5<span class="kw">)</span><span class="ex">,</span> np.percentile<span class="er">(</span><span class="ex">riquezas,</span> 97.5<span class="kw">))</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="st">"Riqueza média simulada:"</span><span class="ex">,</span> media<span class="kw">)</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="st">"IC95%:"</span><span class="ex">,</span> ic95<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Os resultados demonstram que a integração entre probabilidade condicional e Teorema de Bayes permite uma avaliação mais completa da eficiência dos métodos de captura.</p>
+<p>No caso da espécie <em>Lepidocyrtinus paraibensis</em>, a análise bayesiana indicou que o método <strong>Pitfall</strong> apresenta a maior probabilidade posterior de captura (aproximadamente 85%).</p>
+<p>Apesar de o método Winkler ter exibido uma alta proporção relativa da espécie, sua baixa representatividade no total de indivíduos reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente entre os três avaliados, considerando tanto a abundância absoluta quanto a análise probabilística.</p>
 </section>
 
 </main>
