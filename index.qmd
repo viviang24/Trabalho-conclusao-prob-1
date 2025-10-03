@@ -1,164 +1,185 @@
 ---
-title: "Análise Probabilística da Eficiência de Métodos de Captura de Colêmbolos"
-author:
+title: "Análise Probabilística da Eficiência de Métodos de Captura de Collembola"
+author: 
   - "Vivian Germano da Silva"
   - "Aila Soares Ferreira"
-date: "2025-10-01"
-institute: "Universidade Federal da Paraíba"
+date: "1 de outubro de 2025"
 format: html
 ---
 
+<center>
+*Universidade Federal da Paraíba*  
+*Disciplina: Probabilidade I*
+</center>
+
 # Introdução
 
-Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — **Pitfall**, **Aspirador** e **Winkler** — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e o Teorema de Bayes para avaliar a afinidade de espécies pelos métodos e indicar o método mais provável responsável pelas capturas observadas.  
+Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — **Pitfall**, **Aspirador** e **Winkler** — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e o Teorema de Bayes para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.  
 
-**O objetivo deste estudo** é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à **Ecologia e Conservação da fauna de solo (Collembola)**, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.
+**O objetivo deste estudo** é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à **Ecologia e Conservação da fauna de solo (Collembola)**, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.  
 
-As fórmulas fundamentais utilizadas são:
+As fórmulas fundamentais utilizadas são:  
 
-## Probabilidade condicional (verossimilhança)
-
-$$
-P(E \mid H) = \dfrac{\text{número de indivíduos da espécie }E\text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
-$$
-
-## Teorema de Bayes (posterior do método dado a ocorrência da espécie)
+### Probabilidade condicional (verossimilhança)
 
 $$
-P(H \mid E) = \dfrac{P(E \mid H)\,P(H)}{\sum_{j} P(E \mid H_j)\,P(H_j)}
+P(E \mid H) = \frac{\text{número de indivíduos da espécie }E \text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
+$$  
+
+### Teorema de Bayes (posterior do método dado a ocorrência da espécie)
+
 $$
+P(H \mid E) = \frac{P(E \mid H)\,P(H)}{\sum_{j} P(E \mid H_j)\,P(H_j)}
+$$  
 
-onde $P(H)$ é a probabilidade a priori do método $H$ (proporção dos indivíduos totais coletados por esse método).
+onde $P(H)$ é a probabilidade a priori do método $H$ (proporção dos indivíduos totais coletados por esse método).  
 
----
+# Probabilidade de Captura por Método
 
-# Probabilidade de captura por método
+## Probabilidades com base na riqueza de espécies (presença/ausência)
 
-Probabilidades baseadas na riqueza de espécies (presença/ausência).
-
-Totais por método (número de espécies/riqueza) foram:
+Totais por método (número de espécies/riqueza) foram:  
 
 - Pitfall: 38  
 - Aspirador: 16  
 - Winkler: 20  
-- Total de espécies: 43
+- Total de espécies: 43  
 
-Assim, as probabilidades de uma espécie ser capturada por cada método são:
+Assim, as probabilidades de uma espécie ser capturada por cada método (baseado na riqueza) são:  
 
 $$
 P(\text{Pitfall}) = \frac{38}{43} \approx 0.8837
-$$
+$$  
 
 $$
 P(\text{Aspirador}) = \frac{16}{43} \approx 0.3721
-$$
+$$  
 
 $$
 P(\text{Winkler}) = \frac{20}{43} \approx 0.4651
-$$
+$$  
 
----
+## Probabilidades a priori $P(H)$ (proporção de indivíduos)
+
+Os totais por método (soma de todos os indivíduos) foram:  
+
+- Pitfall: 13.469  
+- Aspirador: 953  
+- Winkler: 314  
+- Total geral: 14.736  
+
+Assim, as **probabilidades a priori** $P(H)$ dos métodos são:  
+
+$$
+P(\text{Pitfall}) = \frac{13469}{14736} \approx 0.9142
+$$  
+
+$$
+P(\text{Aspirador}) = \frac{953}{14736} \approx 0.0647
+$$  
+
+$$
+P(\text{Winkler}) = \frac{314}{14736} \approx 0.0213
+$$  
 
 # Espécies mais abundantes
 
-A seguir, apresentamos as dez espécies com maior abundância consolidada nas três metodologias (Pitfall, Aspirador, Winkler). Esses totais foram extraídos diretamente da planilha de campo e servem de base para a escolha das espécies a serem submetidas à análise probabilística.
+A seguir apresentamos as dez espécies com maior abundância, conforme planilha de campo:  
 
-| Espécie                      | Pitfall | Aspirador | Winkler | Total Geral |
-|------------------------------:|--------:|---------:|--------:|------------:|
-| *Lepidocyrtus* sp.n.5        | 7798    | 0        | 2       | 7800        |
-| *Lepidocyrtinus paraibensis* | 2946    | 474      | 42      | 3462        |
-| *Lepidocyrtus* sp.n.4        | 1024    | 0        | 0       | 1024        |
-| *Trogolaphysa formosensis*   | 600     | 46       | 0       | 646         |
-| *Brachystomella agrosa*      | 254     | 4        | 2       | 260         |
-| *Salina brasiliana*          | 160     | 96       | 0       | 256         |
-| *Calvatomina* sp.1           | 182     | 6        | 0       | 188         |
-| *Trogolaphysa cf. ernesti*   | 84      | 52       | 0       | 136         |
-| *Sphaeridia* sp.1            | 116     | 0        | 2       | 118         |
-| *Rhynchocyrtus* sp.n.1       | 90      | 0        | 0       | 90          |
+| Espécie | Pitfall | Aspirador | Winkler | Total Geral |
+|---------|---------|-----------|---------|-------------|
+| *Lepidocyrtus* sp.n.5 | 4562 | 20 | 2 | 4584 |
+| *Lepidocyrtus* sp.n.4 | 4062 | 21 | 14 | 4097 |
+| *Lepidocyrtinus paraibensis* | 2312 | 522 | 54 | 2888 |
+| *Trogolaphysa formosensis* | 867 | 34 | 3 | 904 |
+| *Sphaeridia* sp.1 | 211 | 0 | 101 | 312 |
+| *Lepidocyrtinus harena* | 257 | 36 | 2 | 295 |
+| *Salina brasiliana* | 180 | 75 | 0 | 255 |
+| *Calvatomina* sp.1 | 189 | 15 | 31 | 235 |
+| *Rhynchocyrtus* sp.n.1 | 164 | 33 | 3 | 200 |
+| *Brachystomella agrosa* | 166 | 2 | 9 | 177 |
 
-Para a análise probabilística, escolhemos três espécies representativas (as de maior abundância consolidada):  
+Selecionamos três espécies representativas:  
 
-1. *Lepidocyrtus* sp.n.5  
-2. *Lepidocyrtinus paraibensis*  
-3. *Lepidocyrtus* sp.n.4  
-
----
+1. *Lepidocyrtus* sp.n.5 – espécie mais abundante (34,6% do total).  
+2. *Lepidocyrtinus paraibensis* – táxon com distribuição balanceada entre métodos.  
+3. *Rhynchocyrtus* sp.n.1 – táxon relevante para conservação.  
 
 # Cálculo das probabilidades condicionais $P(E\mid H)$
 
-Lembrete: 
+Lembrete:  
 
 $$
-P(E\mid H) = \frac{N_{E\ \text{no método}}}{N_{\text{método}}}.
-$$
+P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
+$$  
 
-## 1) *Lepidocyrtus* sp.n.5 (Total = 7.800)
+## 1) *Lepidocyrtus* sp.n.5 (Total = 4.584)
 
-| Método   | $N_E$ | $P(E\mid H)$ |
-|---------:|------:|-------------:|
-| Pitfall  | 7798  | $7798 / 12382 \approx 0.6298$ |
-| Aspirador| 0     | $0 / 794 = 0.0000$ |
-| Winkler  | 2     | $2 / 54 \approx 0.0370$ |
+| Método | $N_E$ | $P(E\mid H)$ |
+|--------|-------|--------------|
+| Pitfall | 4562 | 4562/13469 ≈ 0.3387 |
+| Aspirador | 20 | 20/953 ≈ 0.0210 |
+| Winkler | 2 | 2/314 ≈ 0.00064 |
 
-## 2) *Lepidocyrtinus paraibensis* (Total = 3.462)
+## 2) *Lepidocyrtinus paraibensis* (Total = 2.888)
 
-| Método   | $N_E$ | $P(E\mid H)$ |
-|---------:|------:|-------------:|
-| Pitfall  | 2946  | $2946 / 12382 \approx 0.2379$ |
-| Aspirador| 474   | $474 / 794 \approx 0.5970$ |
-| Winkler  | 42    | $42 / 54 \approx 0.7778$ |
+| Método | $N_E$ | $P(E\mid H)$ |
+|--------|-------|--------------|
+| Pitfall | 2312 | 2312/13469 ≈ 0.1716 |
+| Aspirador | 522 | 522/953 ≈ 0.5477 |
+| Winkler | 54 | 54/314 ≈ 0.1720 |
 
-## 3) *Lepidocyrtus* sp.n.4 (Total = 1.024)
+## 3) *Rhynchocyrtus* sp.n.1 (Total = 200)
 
-| Método   | $N_E$ | $P(E\mid H)$ |
-|---------:|------:|-------------:|
-| Pitfall  | 1024  | $1024 / 12382 \approx 0.0827$ |
-| Aspirador| 0     | $0 / 794 = 0.0000$ |
-| Winkler  | 0     | $0 / 54 = 0.0000$ |
-
----
+| Método | $N_E$ | $P(E\mid H)$ |
+|--------|-------|--------------|
+| Pitfall | 164 | 164/13469 ≈ 0.0122 |
+| Aspirador | 33 | 33/953 ≈ 0.0346 |
+| Winkler | 3 | 3/314 ≈ 0.0096 |
 
 # Aplicação do Teorema de Bayes
 
-Para ilustrar a inferência Bayesiana, escolhemos *Lepidocyrtinus paraibensis*.  
+Escolhemos *Lepidocyrtinus paraibensis* como exemplo.  
 
-Usamos as verossimilhanças $P(E\mid H)$ da seção anterior e as priors $P(H)$ já calculadas.
+- Numerador (Pitfall): 0.1716 × 0.9142 ≈ 0.1569  
+- Numerador (Aspirador): 0.5477 × 0.0647 ≈ 0.0354  
+- Numerador (Winkler): 0.1720 × 0.0213 ≈ 0.0037  
 
-Cálculo (valores arredondados):
-
-- Numerador (Pitfall): $0.2379 \times 0.9359 \approx 0.2227$  
-- Numerador (Aspirador): $0.5970 \times 0.0600 \approx 0.0358$  
-- Numerador (Winkler): $0.7778 \times 0.0041 \approx 0.0032$  
-
-Denominador (soma dos numeradores):
+Denominador (soma dos numeradores):  
 
 $$
-0.2227 + 0.0358 + 0.0032 \approx 0.2617
-$$
+0.1569 + 0.0354 + 0.0037 \approx 0.1960
+$$  
 
-Posterior para cada método:
+Posterior para cada método:  
 
-$$
-P(\text{Pitfall}\mid E) \approx \frac{0.2227}{0.2617} \approx 0.85 \quad (85\%)
-$$
-
-$$
-P(\text{Aspirador}\mid E) \approx \frac{0.0358}{0.2617} \approx 0.14 \quad (14\%)
-$$
-
-$$
-P(\text{Winkler}\mid E) \approx \frac{0.0032}{0.2617} \approx 0.01 \quad (1\%)
-$$
-
----
+- $P(\text{Pitfall}\mid E) ≈ 0.80 \ (80\%)$  
+- $P(\text{Aspirador}\mid E) ≈ 0.18 \ (18\%)$  
+- $P(\text{Winkler}\mid E) ≈ 0.02 \ (2\%)$  
 
 # Conclusão
 
-Os resultados demonstram que a integração entre probabilidade condicional e Teorema de Bayes permite uma avaliação mais completa da eficiência dos métodos de captura.  
+A integração entre probabilidade condicional e Teorema de Bayes permite avaliar de forma mais completa a eficiência dos métodos de captura.  
 
-No caso da espécie *Lepidocyrtinus paraibensis*, a análise bayesiana indicou que o método **Pitfall** apresenta a maior probabilidade posterior de captura (aproximadamente 85%).  
+No caso de *Lepidocyrtinus paraibensis*, o método **Pitfall** apresentou a maior probabilidade posterior de captura (~85%).  
 
-Apesar de o método Winkler ter exibido uma alta proporção relativa da espécie, sua baixa representatividade no total de indivíduos reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente entre os três avaliados, considerando tanto a abundância absoluta quanto a análise probabilística.
+Apesar de o método Winkler ter exibido proporção relativa alta da espécie, sua baixa representatividade reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente, considerando tanto a abundância absoluta quanto a análise probabilística.  
 
+---
 
+Este estudo também demonstra como a análise probabilística fornece bases científicas para a escolha de métodos de coleta de colêmbolos, indo além da observação empírica.  
+
+Através de diferentes abordagens estatísticas, foi possível estabelecer um **guia metodológico preciso**:
+
+- A **análise de riqueza** revelou que o Pitfall detecta 88% das espécies, consolidando-o como método principal para inventários.  
+- A **análise de abundância** confirmou sua dominância numérica (91% dos indivíduos), ideal para estudos quantitativos.  
+- Já a **análise de afinidade** identificou que espécies específicas como *L. paraibensis* têm maior probabilidade de captura pelo Aspirador (55%), direcionando seu uso para espécies-alvo.  
+- Destaca-se também o caso do *Rhynchocyrtus* sp.n.1, espécie rara da Mata Atlântica com registros conhecidos apenas no Rio de Janeiro, que foi eficientemente capturada pelo Aspirador, demonstrando a importância de métodos complementares para táxons de distribuição restrita.  
+- Finalmente, o **Teorema de Bayes** validou estatisticamente a superioridade do Pitfall (80% de eficiência).  
+
+A **importância crucial destes testes** está em substituir suposições por dados probabilísticos, permitindo:  
+
+- **Otimização de recursos** humanos e financeiros  
+- **Maximização da detecção** de espécies  
+- **Planejamento amostral** cientificamente embasado  
 
