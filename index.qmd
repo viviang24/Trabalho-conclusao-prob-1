@@ -28,9 +28,6 @@ Este trabalho compara a eficiência de três métodos de amostragem de colêmbol
 
 <br>
 
-![Diagrama venn ](figuras%20de%20prob%20I/graficos/diagrama.png)
-
-<br>
 As fórmulas fundamentais utilizadas são:  
 
 ### Probabilidade condicional (verossimilhança)
@@ -38,15 +35,7 @@ As fórmulas fundamentais utilizadas são:
 $$
 P(E \mid H) = \frac{\text{número de indivíduos da espécie }E \text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
 $$  
-
-### Teorema de Bayes (posterior do método dado a ocorrência da espécie)
-
-$$
-P(H \mid E) = \frac{P(E \mid H)\,P(H)}{\sum_{j} P(E \mid H_j)\,P(H_j)}
-$$  
-
-onde $P(H)$ é a probabilidade a priori do método $H$ (proporção dos indivíduos totais coletados por esse método).  
-
+  
 # Probabilidade de Captura por Método
 
 ## Probabilidades com base na riqueza de espécies (presença/ausência)
@@ -54,23 +43,41 @@ onde $P(H)$ é a probabilidade a priori do método $H$ (proporção dos indivíd
 Totais por método (número de espécies/riqueza) foram:  
 
 - Pitfall: 38  
-- Aspirador: 16  
-- Winkler: 20  
+- Aspirador: 24  
+- Winkler: 21  
 - Total de espécies: 43  
 
 Assim, as probabilidades de uma espécie ser capturada por cada método (baseado na riqueza) são:  
 
 $$
-P(\text{Pitfall}) = \frac{38}{43} \approx 0.8837
+P(\text{Pitfall}) = \frac{38}{43} \approx 0.8837 \Rightarrow 88,4\%
 $$  
 
 $$
-P(\text{Aspirador}) = \frac{16}{43} \approx 0.3721
+P(\text{Aspirador}) = \frac{24}{43} \approx 0.5581 \Rightarrow 55,8\%
 $$  
 
 $$
-P(\text{Winkler}) = \frac{20}{43} \approx 0.4651
-$$  
+P(\text{Winkler}) = \frac{21}{43} \approx 0.4883 \Rightarrow 48,8\%
+$$ 
+<br>
+Antes de aprofundar os cálculos, apresentamos o diagrama de Venn abaixo, que resume graficamente a sobreposição de espécies detectadas entre os três métodos de coleta, evidenciando quais táxons são exclusivos ou compartilhados.  
+
+![Diagrama de Venn](figuras%20de%20prob%20I/graficos/diagramavenn.png)
+
+O diagrama acima ilustra a sobreposição de espécies capturadas pelos três métodos de coleta.
+Podemos observar que:
+
+- **13 espécies (30,2%) foram exclusivas do Pitfall**, reforçando sua alta eficiência em capturar a fauna de solo.
+
+- **Apenas 1 espécie (2,3%) foi exclusiva do Aspirador**, indicando baixa representatividade isolada.
+
+- **2 espécies (4,7%) foram exclusivas do Winkler**, o que mostra que ele ainda tem importância para espécies associadas à serapilheira.
+
+- A interseção tripla (13 espécies; 30,2%) mostra que **cerca de um terço das espécies foram detectadas por todos os métodos**, o que evidencia complementaridade entre as técnicas.
+
+Esse resultado demonstra que, embora o Pitfall seja o método mais eficiente isoladamente, a combinação dos três métodos maximiza a detecção da biodiversidade total.
+<br>
 
 ## Probabilidades a priori $P(H)$ (proporção de indivíduos)
 
@@ -79,20 +86,20 @@ Os totais por método (soma de todos os indivíduos) foram:
 - Pitfall: 13.469  
 - Aspirador: 953  
 - Winkler: 314  
-- Total geral: 14.736  
+- Total geral: 14.736 
 
 Assim, as **probabilidades a priori** $P(H)$ dos métodos são:  
 
 $$
-P(\text{Pitfall}) = \frac{13469}{14736} \approx 0.9142
+P(\text{Pitfall}) = \frac{13469}{14736} \approx 0.9142 \Rightarrow 91,4\%
 $$  
 
 $$
-P(\text{Aspirador}) = \frac{953}{14736} \approx 0.0647
+P(\text{Aspirador}) = \frac{953}{14736} \approx 0.0647 \Rightarrow 6,5\%
 $$  
 
 $$
-P(\text{Winkler}) = \frac{314}{14736} \approx 0.0213
+P(\text{Winkler}) = \frac{314}{14736} \approx 0.0213 \Rightarrow 2,1\%
 $$  
 
 # Espécies mais abundantes
@@ -132,9 +139,9 @@ $$
 
 | Método | $N_E$ | $P(E\mid H)$ |
 |--------|-------|--------------|
-| Pitfall | 4562 | 4562/13469 ≈ 0.3387 |
-| Aspirador | 20 | 20/953 ≈ 0.0210 |
-| Winkler | 2 | 2/314 ≈ 0.00064 |
+| Pitfall | 4562 | 4562/13469 ≈ 0.3387 → **33,9%** | 
+| Aspirador | 20 | 20/953 ≈ 0.0210 → **2,1%** |
+| Winkler | 2 | 2/314 ≈ 0.00064 → **0,06%** |
 
 <br>
 
@@ -167,9 +174,9 @@ plt.close()
 
 | Método | $N_E$ | $P(E\mid H)$ |
 |--------|-------|--------------|
-| Pitfall | 2312 | 2312/13469 ≈ 0.1716 |
-| Aspirador | 522 | 522/953 ≈ 0.5477 |
-| Winkler | 54 | 54/314 ≈ 0.1720 |
+| Pitfall | 2312 | 2312/13469 ≈ 0.1716 → **17,2%** |
+| Aspirador | 522 | 522/953 ≈ 0.5477 → **54,8%** |
+| Winkler | 54 | 54/314 ≈ 0.1720 → **17,2%** |
 
 <br>
 
@@ -196,9 +203,9 @@ plt.close()
 
 | Método | $N_E$ | $P(E\mid H)$ |
 |--------|-------|--------------|
-| Pitfall | 164 | 164/13469 ≈ 0.0122 |
-| Aspirador | 33 | 33/953 ≈ 0.0346 |
-| Winkler | 3 | 3/314 ≈ 0.0096 |
+| Pitfall | 164 | 164/13469 ≈ 0.0122 → **1,22%** |
+| Aspirador | 33 | 33/953 ≈ 0.0346 → **3,46%** |
+| Winkler | 3 | 3/314 ≈ 0.0096 → **0,96%** |
 
 <br>
 
@@ -219,48 +226,7 @@ plt.legend()
 plt.tight_layout()
 plt.savefig('graficos/condicional_rhynchocyrtus.png')
 plt.close()
-```
-
-# Aplicação do Teorema de Bayes
-
-Escolhemos *Lepidocyrtinus paraibensis* como exemplo.  
-
-- Numerador (Pitfall): 0.1716 × 0.9142 ≈ 0.1569  
-- Numerador (Aspirador): 0.5477 × 0.0647 ≈ 0.0354  
-- Numerador (Winkler): 0.1720 × 0.0213 ≈ 0.0037  
-
-Denominador (soma dos numeradores):  
-
-$$
-0.1569 + 0.0354 + 0.0037 \approx 0.1960
-$$  
-
-Posterior para cada método:  
-
-- $P(\text{Pitfall}\mid E) ≈ 0.80 \ (80\%)$  
-- $P(\text{Aspirador}\mid E) ≈ 0.18 \ (18\%)$  
-- $P(\text{Winkler}\mid E) ≈ 0.02 \ (2\%)$  
-
-## Cálculo Bayesiano em Python
-
-```python
-P_E_H = [0.1716, 0.5477, 0.1720]
-P_H = [0.9142, 0.0647, 0.0213]
-metodos = ['Pitfall', 'Aspirador', 'Winkler']
-numeradores = [a*b for a,b in zip(P_E_H, P_H)]
-denominador = sum(numeradores)
-P_H_E = [n/denominador for n in numeradores]
-for m, p in zip(metodos, P_H_E):
-    print(f'P({m}|E) = {p:.2%}')
-```
-
-# Conclusão
-
-A integração entre probabilidade condicional e Teorema de Bayes permite avaliar de forma mais completa a eficiência dos métodos de captura.  
-
-No caso de *Lepidocyrtinus paraibensis*, o método **Pitfall** apresentou a maior probabilidade posterior de captura (~85%).  
-
-Apesar de o método Winkler ter exibido proporção relativa alta da espécie, sua baixa representatividade reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente, considerando tanto a abundância absoluta quanto a análise probabilística.  
+```  
 
 ## Simulação Monte Carlo para planejamento amostral
 
@@ -288,22 +254,19 @@ plt.savefig('graficos/montecarlo_scatter.png')
 plt.close()
 ```
 
-Esse gráfico auxilia no planejamento amostral, mostrando a variabilidade esperada na detecção de espécies.
+O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.
+
+- Validação Empírica: O ponto de maior frequência (o mais escuro e alto) está concentrado entre 38 e 39 espécies detectadas. **Isso valida a observação original da tese (38 espécies) como o resultado mais provável em coletas futuras.**
+
+- Variabilidade Esperada: A maioria dos resultados simulados (a área mais densa da distribuição) concentra-se firmemente entre 36 e 41 espécies.
+
+- Baixo Risco de Falha: A probabilidade de o Pitfall falhar e detectar um número muito baixo de espécies (ex: menos de 34) é extremamente baixa, reforçando a confiabilidade do método.
 
 ---
+# Conclusão
 
-Este estudo também demonstra como a análise probabilística fornece bases científicas para a escolha de métodos de coleta de colêmbolos, indo além da observação empírica.  
+Este estudo demonstrou, **com base em dados empíricos e probabilísticos, que o método Pitfall é o mais eficiente para a captura de colêmbolos**, tanto em abundância (91% dos indivíduos) quanto em riqueza (88% das espécies).
 
-Através de diferentes abordagens estatísticas, foi possível estabelecer um **guia metodológico preciso**:
+As simulações de Probabilidade Condicional permitiram observar a afinidade de espécies por métodos específicos, enquanto a simulação Monte Carlo forneceu um panorama probabilístico do número esperado de espécies detectadas e na otimização de recursos.
 
-- A **análise de riqueza** revelou que o Pitfall detecta 88% das espécies, consolidando-o como método principal para inventários.  
-- A **análise de abundância** confirmou sua dominância numérica (91% dos indivíduos), ideal para estudos quantitativos.  
-- Já a **análise de afinidade** identificou que espécies específicas como *L. paraibensis* têm maior probabilidade de captura pelo Aspirador (55%), direcionando seu uso para espécies-alvo.  
-- Destaca-se também o caso do *Rhynchocyrtus* sp.n.1, espécie rara da Mata Atlântica com registros conhecidos apenas no Rio de Janeiro, que foi eficientemente capturada pelo Aspirador, demonstrando a importância de métodos complementares para táxons de distribuição restrita.  
-- Finalmente, o **Teorema de Bayes** validou estatisticamente a superioridade do Pitfall (80% de eficiência).  
-
-A **importância crucial destes testes** está em substituir suposições por dados probabilísticos, permitindo:  
-
-- **Otimização de recursos** humanos e financeiros  
-- **Maximização da detecção** de espécies  
-- **Planejamento amostral** cientificamente embasado
+**A análise probabilística aqui aplicada reforça a importância do uso de dados quantitativos para apoiar decisões ecológicas**, mostrando que o uso combinado de métodos, embora o Pitfall seja dominante, aumenta a representatividade das espécies raras e garante coletas mais completas.

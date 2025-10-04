@@ -115,7 +115,6 @@ window.Quarto = {
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a>
   <ul class="collapse">
   <li><a href="#probabilidade-condicional-verossimilhança" id="toc-probabilidade-condicional-verossimilhança" class="nav-link" data-scroll-target="#probabilidade-condicional-verossimilhança">Probabilidade condicional (verossimilhança)</a></li>
-  <li><a href="#teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie" id="toc-teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie" class="nav-link" data-scroll-target="#teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie">Teorema de Bayes (posterior do método dado a ocorrência da espécie)</a></li>
   </ul></li>
   <li><a href="#probabilidade-de-captura-por-método" id="toc-probabilidade-de-captura-por-método" class="nav-link" data-scroll-target="#probabilidade-de-captura-por-método">Probabilidade de Captura por Método</a>
   <ul class="collapse">
@@ -128,15 +127,9 @@ window.Quarto = {
   <li><a href="#lepidocyrtus-sp.n.5-total-4.584" id="toc-lepidocyrtus-sp.n.5-total-4.584" class="nav-link" data-scroll-target="#lepidocyrtus-sp.n.5-total-4.584">1) <em>Lepidocyrtus</em> sp.n.5 (Total = 4.584)</a></li>
   <li><a href="#lepidocyrtinus-paraibensis-total-2.888" id="toc-lepidocyrtinus-paraibensis-total-2.888" class="nav-link" data-scroll-target="#lepidocyrtinus-paraibensis-total-2.888">2) <em>Lepidocyrtinus paraibensis</em> (Total = 2.888)</a></li>
   <li><a href="#rhynchocyrtus-sp.n.1-total-200" id="toc-rhynchocyrtus-sp.n.1-total-200" class="nav-link" data-scroll-target="#rhynchocyrtus-sp.n.1-total-200">3) <em>Rhynchocyrtus</em> sp.n.1 (Total = 200)</a></li>
-  </ul></li>
-  <li><a href="#aplicação-do-teorema-de-bayes" id="toc-aplicação-do-teorema-de-bayes" class="nav-link" data-scroll-target="#aplicação-do-teorema-de-bayes">Aplicação do Teorema de Bayes</a>
-  <ul class="collapse">
-  <li><a href="#cálculo-bayesiano-em-python" id="toc-cálculo-bayesiano-em-python" class="nav-link" data-scroll-target="#cálculo-bayesiano-em-python">Cálculo Bayesiano em Python</a></li>
-  </ul></li>
-  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a>
-  <ul class="collapse">
   <li><a href="#simulação-monte-carlo-para-planejamento-amostral" id="toc-simulação-monte-carlo-para-planejamento-amostral" class="nav-link" data-scroll-target="#simulação-monte-carlo-para-planejamento-amostral">Simulação Monte Carlo para planejamento amostral</a></li>
   </ul></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a></li>
   </ul>
 </nav>
 </div>
@@ -178,25 +171,12 @@ window.Quarto = {
 <p>Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — <strong>Pitfall</strong>, <strong>Aspirador</strong> e <strong>Winkler</strong> — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e o Teorema de Bayes para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.</p>
 <p><strong>O objetivo deste estudo</strong> é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à <strong>Ecologia e Conservação da fauna de solo (Collembola)</strong>, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.</p>
 <p><br></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figuras%20de%20prob%20I/graficos/diagrama.png" class="img-fluid figure-img"></p>
-<figcaption>Diagrama venn</figcaption>
-</figure>
-</div>
-<p><br> As fórmulas fundamentais utilizadas são:</p>
+<p>As fórmulas fundamentais utilizadas são:</p>
 <section id="probabilidade-condicional-verossimilhança" class="level3">
 <h3 class="anchored" data-anchor-id="probabilidade-condicional-verossimilhança">Probabilidade condicional (verossimilhança)</h3>
 <p><span class="math display">\[
 P(E \mid H) = \frac{\text{número de indivíduos da espécie }E \text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
 \]</span></p>
-</section>
-<section id="teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie" class="level3">
-<h3 class="anchored" data-anchor-id="teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie">Teorema de Bayes (posterior do método dado a ocorrência da espécie)</h3>
-<p><span class="math display">\[
-P(H \mid E) = \frac{P(E \mid H)\,P(H)}{\sum_{j} P(E \mid H_j)\,P(H_j)}
-\]</span></p>
-<p>onde <span class="math inline">\(P(H)\)</span> é a probabilidade a priori do método <span class="math inline">\(H\)</span> (proporção dos indivíduos totais coletados por esse método).</p>
 </section>
 </section>
 <section id="probabilidade-de-captura-por-método" class="level1">
@@ -207,22 +187,36 @@ P(H \mid E) = \frac{P(E \mid H)\,P(H)}{\sum_{j} P(E \mid H_j)\,P(H_j)}
 <ul>
 <li>Pitfall: 38<br>
 </li>
-<li>Aspirador: 16<br>
+<li>Aspirador: 24<br>
 </li>
-<li>Winkler: 20<br>
+<li>Winkler: 21<br>
 </li>
 <li>Total de espécies: 43</li>
 </ul>
 <p>Assim, as probabilidades de uma espécie ser capturada por cada método (baseado na riqueza) são:</p>
 <p><span class="math display">\[
-P(\text{Pitfall}) = \frac{38}{43} \approx 0.8837
+P(\text{Pitfall}) = \frac{38}{43} \approx 0.8837 \Rightarrow 88,4\%
 \]</span></p>
 <p><span class="math display">\[
-P(\text{Aspirador}) = \frac{16}{43} \approx 0.3721
+P(\text{Aspirador}) = \frac{24}{43} \approx 0.5581 \Rightarrow 55,8\%
 \]</span></p>
 <p><span class="math display">\[
-P(\text{Winkler}) = \frac{20}{43} \approx 0.4651
-\]</span></p>
+P(\text{Winkler}) = \frac{21}{43} \approx 0.4883 \Rightarrow 48,8\%
+\]</span> <br> Antes de aprofundar os cálculos, apresentamos o diagrama de Venn abaixo, que resume graficamente a sobreposição de espécies detectadas entre os três métodos de coleta, evidenciando quais táxons são exclusivos ou compartilhados.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras%20de%20prob%20I/graficos/diagramavenn.png" class="img-fluid figure-img"></p>
+<figcaption>Diagrama de Venn</figcaption>
+</figure>
+</div>
+<p>O diagrama acima ilustra a sobreposição de espécies capturadas pelos três métodos de coleta. Podemos observar que:</p>
+<ul>
+<li><p><strong>13 espécies (30,2%) foram exclusivas do Pitfall</strong>, reforçando sua alta eficiência em capturar a fauna de solo.</p></li>
+<li><p><strong>Apenas 1 espécie (2,3%) foi exclusiva do Aspirador</strong>, indicando baixa representatividade isolada.</p></li>
+<li><p><strong>2 espécies (4,7%) foram exclusivas do Winkler</strong>, o que mostra que ele ainda tem importância para espécies associadas à serapilheira.</p></li>
+<li><p>A interseção tripla (13 espécies; 30,2%) mostra que <strong>cerca de um terço das espécies foram detectadas por todos os métodos</strong>, o que evidencia complementaridade entre as técnicas.</p></li>
+</ul>
+<p>Esse resultado demonstra que, embora o Pitfall seja o método mais eficiente isoladamente, a combinação dos três métodos maximiza a detecção da biodiversidade total. <br></p>
 </section>
 <section id="probabilidades-a-priori-ph-proporção-de-indivíduos" class="level2">
 <h2 class="anchored" data-anchor-id="probabilidades-a-priori-ph-proporção-de-indivíduos">Probabilidades a priori <span class="math inline">\(P(H)\)</span> (proporção de indivíduos)</h2>
@@ -238,13 +232,13 @@ P(\text{Winkler}) = \frac{20}{43} \approx 0.4651
 </ul>
 <p>Assim, as <strong>probabilidades a priori</strong> <span class="math inline">\(P(H)\)</span> dos métodos são:</p>
 <p><span class="math display">\[
-P(\text{Pitfall}) = \frac{13469}{14736} \approx 0.9142
+P(\text{Pitfall}) = \frac{13469}{14736} \approx 0.9142 \Rightarrow 91,4\%
 \]</span></p>
 <p><span class="math display">\[
-P(\text{Aspirador}) = \frac{953}{14736} \approx 0.0647
+P(\text{Aspirador}) = \frac{953}{14736} \approx 0.0647 \Rightarrow 6,5\%
 \]</span></p>
 <p><span class="math display">\[
-P(\text{Winkler}) = \frac{314}{14736} \approx 0.0213
+P(\text{Winkler}) = \frac{314}{14736} \approx 0.0213 \Rightarrow 2,1\%
 \]</span></p>
 </section>
 </section>
@@ -364,17 +358,17 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <tr class="odd">
 <td>Pitfall</td>
 <td>4562</td>
-<td>4562/13469 ≈ 0.3387</td>
+<td>4562/13469 ≈ 0.3387 → <strong>33,9%</strong></td>
 </tr>
 <tr class="even">
 <td>Aspirador</td>
 <td>20</td>
-<td>20/953 ≈ 0.0210</td>
+<td>20/953 ≈ 0.0210 → <strong>2,1%</strong></td>
 </tr>
 <tr class="odd">
 <td>Winkler</td>
 <td>2</td>
-<td>2/314 ≈ 0.00064</td>
+<td>2/314 ≈ 0.00064 → <strong>0,06%</strong></td>
 </tr>
 </tbody>
 </table>
@@ -420,17 +414,17 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <tr class="odd">
 <td>Pitfall</td>
 <td>2312</td>
-<td>2312/13469 ≈ 0.1716</td>
+<td>2312/13469 ≈ 0.1716 → <strong>17,2%</strong></td>
 </tr>
 <tr class="even">
 <td>Aspirador</td>
 <td>522</td>
-<td>522/953 ≈ 0.5477</td>
+<td>522/953 ≈ 0.5477 → <strong>54,8%</strong></td>
 </tr>
 <tr class="odd">
 <td>Winkler</td>
 <td>54</td>
-<td>54/314 ≈ 0.1720</td>
+<td>54/314 ≈ 0.1720 → <strong>17,2%</strong></td>
 </tr>
 </tbody>
 </table>
@@ -470,17 +464,17 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <tr class="odd">
 <td>Pitfall</td>
 <td>164</td>
-<td>164/13469 ≈ 0.0122</td>
+<td>164/13469 ≈ 0.0122 → <strong>1,22%</strong></td>
 </tr>
 <tr class="even">
 <td>Aspirador</td>
 <td>33</td>
-<td>33/953 ≈ 0.0346</td>
+<td>33/953 ≈ 0.0346 → <strong>3,46%</strong></td>
 </tr>
 <tr class="odd">
 <td>Winkler</td>
 <td>3</td>
-<td>3/314 ≈ 0.0096</td>
+<td>3/314 ≈ 0.0096 → <strong>0,96%</strong></td>
 </tr>
 </tbody>
 </table>
@@ -506,46 +500,6 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/condicional_rhynchocyrtus.png'</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-<section id="aplicação-do-teorema-de-bayes" class="level1">
-<h1>Aplicação do Teorema de Bayes</h1>
-<p>Escolhemos <em>Lepidocyrtinus paraibensis</em> como exemplo.</p>
-<ul>
-<li>Numerador (Pitfall): 0.1716 × 0.9142 ≈ 0.1569<br>
-</li>
-<li>Numerador (Aspirador): 0.5477 × 0.0647 ≈ 0.0354<br>
-</li>
-<li>Numerador (Winkler): 0.1720 × 0.0213 ≈ 0.0037</li>
-</ul>
-<p>Denominador (soma dos numeradores):</p>
-<p><span class="math display">\[
-0.1569 + 0.0354 + 0.0037 \approx 0.1960
-\]</span></p>
-<p>Posterior para cada método:</p>
-<ul>
-<li><span class="math inline">\(P(\text{Pitfall}\mid E) ≈ 0.80 \ (80\%)\)</span><br>
-</li>
-<li><span class="math inline">\(P(\text{Aspirador}\mid E) ≈ 0.18 \ (18\%)\)</span><br>
-</li>
-<li><span class="math inline">\(P(\text{Winkler}\mid E) ≈ 0.02 \ (2\%)\)</span></li>
-</ul>
-<section id="cálculo-bayesiano-em-python" class="level2">
-<h2 class="anchored" data-anchor-id="cálculo-bayesiano-em-python">Cálculo Bayesiano em Python</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>P_E_H <span class="op">=</span> [<span class="fl">0.1716</span>, <span class="fl">0.5477</span>, <span class="fl">0.1720</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>P_H <span class="op">=</span> [<span class="fl">0.9142</span>, <span class="fl">0.0647</span>, <span class="fl">0.0213</span>]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>metodos <span class="op">=</span> [<span class="st">'Pitfall'</span>, <span class="st">'Aspirador'</span>, <span class="st">'Winkler'</span>]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>numeradores <span class="op">=</span> [a<span class="op">*</span>b <span class="cf">for</span> a,b <span class="kw">in</span> <span class="bu">zip</span>(P_E_H, P_H)]</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>denominador <span class="op">=</span> <span class="bu">sum</span>(numeradores)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>P_H_E <span class="op">=</span> [n<span class="op">/</span>denominador <span class="cf">for</span> n <span class="kw">in</span> numeradores]</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m, p <span class="kw">in</span> <span class="bu">zip</span>(metodos, P_H_E):</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'P(</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">|E) = </span><span class="sc">{</span>p<span class="sc">:.2%}</span><span class="ss">'</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="conclusão" class="level1">
-<h1>Conclusão</h1>
-<p>A integração entre probabilidade condicional e Teorema de Bayes permite avaliar de forma mais completa a eficiência dos métodos de captura.</p>
-<p>No caso de <em>Lepidocyrtinus paraibensis</em>, o método <strong>Pitfall</strong> apresentou a maior probabilidade posterior de captura (~85%).</p>
-<p>Apesar de o método Winkler ter exibido proporção relativa alta da espécie, sua baixa representatividade reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente, considerando tanto a abundância absoluta quanto a análise probabilística.</p>
 <section id="simulação-monte-carlo-para-planejamento-amostral" class="level2">
 <h2 class="anchored" data-anchor-id="simulação-monte-carlo-para-planejamento-amostral">Simulação Monte Carlo para planejamento amostral</h2>
 <p>A seguir, uma simulação para estimar quantas espécies podem ser detectadas pelo método Pitfall, considerando a probabilidade observada:</p>
@@ -556,45 +510,35 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <figcaption>Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)</figcaption>
 </figure>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n_especies <span class="op">=</span> <span class="dv">43</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>prob_pitfall <span class="op">=</span> <span class="fl">0.8837</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n_sim <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>amostras <span class="op">=</span> np.random.binomial(n_especies, prob_pitfall, n_sim)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>valores, contagem <span class="op">=</span> np.unique(amostras, return_counts<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>scatter <span class="op">=</span> plt.scatter(valores, contagem, c<span class="op">=</span>contagem, cmap<span class="op">=</span><span class="st">'YlGn'</span>, s<span class="op">=</span><span class="dv">80</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.colorbar(scatter, label<span class="op">=</span><span class="st">'Frequência'</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)'</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Número de espécies detectadas'</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequência'</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/montecarlo_scatter.png'</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Esse gráfico auxilia no planejamento amostral, mostrando a variabilidade esperada na detecção de espécies.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_especies <span class="op">=</span> <span class="dv">43</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>prob_pitfall <span class="op">=</span> <span class="fl">0.8837</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>n_sim <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>amostras <span class="op">=</span> np.random.binomial(n_especies, prob_pitfall, n_sim)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>valores, contagem <span class="op">=</span> np.unique(amostras, return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>scatter <span class="op">=</span> plt.scatter(valores, contagem, c<span class="op">=</span>contagem, cmap<span class="op">=</span><span class="st">'YlGn'</span>, s<span class="op">=</span><span class="dv">80</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.colorbar(scatter, label<span class="op">=</span><span class="st">'Frequência'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Número de espécies detectadas'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequência'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/montecarlo_scatter.png'</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.</p>
+<ul>
+<li><p>Validação Empírica: O ponto de maior frequência (o mais escuro e alto) está concentrado entre 38 e 39 espécies detectadas. <strong>Isso valida a observação original da tese (38 espécies) como o resultado mais provável em coletas futuras.</strong></p></li>
+<li><p>Variabilidade Esperada: A maioria dos resultados simulados (a área mais densa da distribuição) concentra-se firmemente entre 36 e 41 espécies.</p></li>
+<li><p>Baixo Risco de Falha: A probabilidade de o Pitfall falhar e detectar um número muito baixo de espécies (ex: menos de 34) é extremamente baixa, reforçando a confiabilidade do método.</p></li>
+</ul>
 <hr>
-<p>Este estudo também demonstra como a análise probabilística fornece bases científicas para a escolha de métodos de coleta de colêmbolos, indo além da observação empírica.</p>
-<p>Através de diferentes abordagens estatísticas, foi possível estabelecer um <strong>guia metodológico preciso</strong>:</p>
-<ul>
-<li>A <strong>análise de riqueza</strong> revelou que o Pitfall detecta 88% das espécies, consolidando-o como método principal para inventários.<br>
-</li>
-<li>A <strong>análise de abundância</strong> confirmou sua dominância numérica (91% dos indivíduos), ideal para estudos quantitativos.<br>
-</li>
-<li>Já a <strong>análise de afinidade</strong> identificou que espécies específicas como <em>L. paraibensis</em> têm maior probabilidade de captura pelo Aspirador (55%), direcionando seu uso para espécies-alvo.<br>
-</li>
-<li>Destaca-se também o caso do <em>Rhynchocyrtus</em> sp.n.1, espécie rara da Mata Atlântica com registros conhecidos apenas no Rio de Janeiro, que foi eficientemente capturada pelo Aspirador, demonstrando a importância de métodos complementares para táxons de distribuição restrita.<br>
-</li>
-<li>Finalmente, o <strong>Teorema de Bayes</strong> validou estatisticamente a superioridade do Pitfall (80% de eficiência).</li>
-</ul>
-<p>A <strong>importância crucial destes testes</strong> está em substituir suposições por dados probabilísticos, permitindo:</p>
-<ul>
-<li><strong>Otimização de recursos</strong> humanos e financeiros<br>
-</li>
-<li><strong>Maximização da detecção</strong> de espécies<br>
-</li>
-<li><strong>Planejamento amostral</strong> cientificamente embasado</li>
-</ul>
 </section>
+</section>
+<section id="conclusão" class="level1">
+<h1>Conclusão</h1>
+<p>Este estudo demonstrou, <strong>com base em dados empíricos e probabilísticos, que o método Pitfall é o mais eficiente para a captura de colêmbolos</strong>, tanto em abundância (91% dos indivíduos) quanto em riqueza (88% das espécies).</p>
+<p>As simulações de Probabilidade Condicional permitiram observar a afinidade de espécies por métodos específicos, enquanto a simulação Monte Carlo forneceu um panorama probabilístico do número esperado de espécies detectadas e na otimização de recursos.</p>
+<p><strong>A análise probabilística aqui aplicada reforça a importância do uso de dados quantitativos para apoiar decisões ecológicas</strong>, mostrando que o uso combinado de métodos, embora o Pitfall seja dominante, aumenta a representatividade das espécies raras e garante coletas mais completas.</p>
 </section>
 
 </main>
