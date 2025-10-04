@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,10 +104,42 @@ window.Quarto = {
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sumário</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a>
+  <ul class="collapse">
+  <li><a href="#probabilidade-condicional-verossimilhança" id="toc-probabilidade-condicional-verossimilhança" class="nav-link" data-scroll-target="#probabilidade-condicional-verossimilhança">Probabilidade condicional (verossimilhança)</a></li>
+  <li><a href="#teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie" id="toc-teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie" class="nav-link" data-scroll-target="#teorema-de-bayes-posterior-do-método-dado-a-ocorrência-da-espécie">Teorema de Bayes (posterior do método dado a ocorrência da espécie)</a></li>
+  </ul></li>
+  <li><a href="#probabilidade-de-captura-por-método" id="toc-probabilidade-de-captura-por-método" class="nav-link" data-scroll-target="#probabilidade-de-captura-por-método">Probabilidade de Captura por Método</a>
+  <ul class="collapse">
+  <li><a href="#probabilidades-com-base-na-riqueza-de-espécies-presençaausência" id="toc-probabilidades-com-base-na-riqueza-de-espécies-presençaausência" class="nav-link" data-scroll-target="#probabilidades-com-base-na-riqueza-de-espécies-presençaausência">Probabilidades com base na riqueza de espécies (presença/ausência)</a></li>
+  <li><a href="#probabilidades-a-priori-ph-proporção-de-indivíduos" id="toc-probabilidades-a-priori-ph-proporção-de-indivíduos" class="nav-link" data-scroll-target="#probabilidades-a-priori-ph-proporção-de-indivíduos">Probabilidades a priori <span class="math inline">\(P(H)\)</span> (proporção de indivíduos)</a></li>
+  </ul></li>
+  <li><a href="#espécies-mais-abundantes" id="toc-espécies-mais-abundantes" class="nav-link" data-scroll-target="#espécies-mais-abundantes">Espécies mais abundantes</a></li>
+  <li><a href="#cálculo-das-probabilidades-condicionais-pemid-h" id="toc-cálculo-das-probabilidades-condicionais-pemid-h" class="nav-link" data-scroll-target="#cálculo-das-probabilidades-condicionais-pemid-h">Cálculo das probabilidades condicionais <span class="math inline">\(P(E\mid H)\)</span></a>
+  <ul class="collapse">
+  <li><a href="#lepidocyrtus-sp.n.5-total-4.584" id="toc-lepidocyrtus-sp.n.5-total-4.584" class="nav-link" data-scroll-target="#lepidocyrtus-sp.n.5-total-4.584">1) <em>Lepidocyrtus</em> sp.n.5 (Total = 4.584)</a></li>
+  <li><a href="#lepidocyrtinus-paraibensis-total-2.888" id="toc-lepidocyrtinus-paraibensis-total-2.888" class="nav-link" data-scroll-target="#lepidocyrtinus-paraibensis-total-2.888">2) <em>Lepidocyrtinus paraibensis</em> (Total = 2.888)</a></li>
+  <li><a href="#rhynchocyrtus-sp.n.1-total-200" id="toc-rhynchocyrtus-sp.n.1-total-200" class="nav-link" data-scroll-target="#rhynchocyrtus-sp.n.1-total-200">3) <em>Rhynchocyrtus</em> sp.n.1 (Total = 200)</a></li>
+  </ul></li>
+  <li><a href="#aplicação-do-teorema-de-bayes" id="toc-aplicação-do-teorema-de-bayes" class="nav-link" data-scroll-target="#aplicação-do-teorema-de-bayes">Aplicação do Teorema de Bayes</a>
+  <ul class="collapse">
+  <li><a href="#cálculo-bayesiano-em-python" id="toc-cálculo-bayesiano-em-python" class="nav-link" data-scroll-target="#cálculo-bayesiano-em-python">Cálculo Bayesiano em Python</a></li>
+  </ul></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a>
+  <ul class="collapse">
+  <li><a href="#simulação-monte-carlo-para-planejamento-amostral" id="toc-simulação-monte-carlo-para-planejamento-amostral" class="nav-link" data-scroll-target="#simulação-monte-carlo-para-planejamento-amostral">Simulação Monte Carlo para planejamento amostral</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -85,19 +152,13 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Autores</div>
     <div class="quarto-title-meta-contents">
              <p>Vivian Germano da Silva </p>
              <p>Aila Soares Ferreira </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
-    </div>
-  </div>
   
     
   </div>
@@ -108,14 +169,22 @@ window.Quarto = {
 
 
 <center>
-<em>Universidade Federal da Paraíba</em><br>
-<em>Disciplina: Probabilidade I</em>
+<p><em>Universidade Federal da Paraíba</em><br>
+<em>Disciplina: Probabilidade I</em></p>
+<em>1 de outubro de 2025</em>
 </center>
 <section id="introdução" class="level1">
 <h1>Introdução</h1>
 <p>Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — <strong>Pitfall</strong>, <strong>Aspirador</strong> e <strong>Winkler</strong> — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e o Teorema de Bayes para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.</p>
 <p><strong>O objetivo deste estudo</strong> é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à <strong>Ecologia e Conservação da fauna de solo (Collembola)</strong>, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.</p>
-<p>As fórmulas fundamentais utilizadas são:</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras%20de%20prob%20I/graficos/diagrama.png" class="img-fluid figure-img"></p>
+<figcaption>Diagrama venn</figcaption>
+</figure>
+</div>
+<p><br> As fórmulas fundamentais utilizadas são:</p>
 <section id="probabilidade-condicional-verossimilhança" class="level3">
 <h3 class="anchored" data-anchor-id="probabilidade-condicional-verossimilhança">Probabilidade condicional (verossimilhança)</h3>
 <p><span class="math display">\[
@@ -280,6 +349,7 @@ P(\text{Winkler}) = \frac{314}{14736} \approx 0.0213
 <p><span class="math display">\[
 P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 \]</span></p>
+<p><br></p>
 <section id="lepidocyrtus-sp.n.5-total-4.584" class="level2">
 <h2 class="anchored" data-anchor-id="lepidocyrtus-sp.n.5-total-4.584">1) <em>Lepidocyrtus</em> sp.n.5 (Total = 4.584)</h2>
 <table class="caption-top table">
@@ -308,6 +378,33 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras%20de%20prob%20I/graficos/condicional_lepidocyrtus.png" class="img-fluid figure-img"></p>
+<figcaption>Distribuição simulada de capturas de Lepidocyrtus sp.n.5 por método</figcaption>
+</figure>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lepidocyrtus sp.n.5</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>metodos <span class="op">=</span> [<span class="st">'Pitfall'</span>, <span class="st">'Aspirador'</span>, <span class="st">'Winkler'</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>totais <span class="op">=</span> [<span class="dv">13469</span>, <span class="dv">953</span>, <span class="dv">314</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>especie <span class="op">=</span> [<span class="dv">4562</span>, <span class="dv">20</span>, <span class="dv">2</span>]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> [<span class="dv">4562</span><span class="op">/</span><span class="dv">13469</span>, <span class="dv">20</span><span class="op">/</span><span class="dv">953</span>, <span class="dv">2</span><span class="op">/</span><span class="dv">314</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>n_sim <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cores_mata_hist <span class="op">=</span> [<span class="st">'mediumseagreen'</span>, <span class="st">'burlywood'</span>, <span class="st">'olivedrab'</span>]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>simulados <span class="op">=</span> [np.random.binomial(t, p, n_sim) <span class="cf">for</span> t, p <span class="kw">in</span> <span class="bu">zip</span>(totais, prob)]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>(metodos):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    plt.hist(simulados[i], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span>m, color<span class="op">=</span>cores_mata_hist[i])</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribuição simulada de capturas de Lepidocyrtus sp.n.5 por método'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Indivíduos capturados'</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequência'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/condicional_lepidocyrtus.png'</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="lepidocyrtinus-paraibensis-total-2.888" class="level2">
 <h2 class="anchored" data-anchor-id="lepidocyrtinus-paraibensis-total-2.888">2) <em>Lepidocyrtinus paraibensis</em> (Total = 2.888)</h2>
@@ -337,6 +434,27 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras%20de%20prob%20I/graficos/condicional_paraibensis.png" class="img-fluid figure-img"></p>
+<figcaption>Distribuição simulada de capturas de Lepidocyrtinus paraibensis por método</figcaption>
+</figure>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lepidocyrtinus paraibensis</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>especie <span class="op">=</span> [<span class="dv">2312</span>, <span class="dv">522</span>, <span class="dv">54</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> [<span class="dv">2312</span><span class="op">/</span><span class="dv">13469</span>, <span class="dv">522</span><span class="op">/</span><span class="dv">953</span>, <span class="dv">54</span><span class="op">/</span><span class="dv">314</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>simulados <span class="op">=</span> [np.random.binomial(t, p, n_sim) <span class="cf">for</span> t, p <span class="kw">in</span> <span class="bu">zip</span>(totais, prob)]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>(metodos):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    plt.hist(simulados[i], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span>m, color<span class="op">=</span>cores_mata_hist[i])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribuição simulada de capturas de Lepidocyrtinus paraibensis por método'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Indivíduos capturados'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequência'</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/condicional_paraibensis.png'</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rhynchocyrtus-sp.n.1-total-200" class="level2">
 <h2 class="anchored" data-anchor-id="rhynchocyrtus-sp.n.1-total-200">3) <em>Rhynchocyrtus</em> sp.n.1 (Total = 200)</h2>
@@ -366,6 +484,27 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras%20de%20prob%20I/graficos/condicional_rhynchocyrtus.png" class="img-fluid figure-img"></p>
+<figcaption>Distribuição simulada de capturas de Rhynchocyrtus sp.n.1 por método</figcaption>
+</figure>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rhynchocyrtus sp.n.1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>especie <span class="op">=</span> [<span class="dv">164</span>, <span class="dv">33</span>, <span class="dv">3</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> [<span class="dv">164</span><span class="op">/</span><span class="dv">13469</span>, <span class="dv">33</span><span class="op">/</span><span class="dv">953</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">314</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>simulados <span class="op">=</span> [np.random.binomial(t, p, n_sim) <span class="cf">for</span> t, p <span class="kw">in</span> <span class="bu">zip</span>(totais, prob)]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>(metodos):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    plt.hist(simulados[i], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span>m, color<span class="op">=</span>cores_mata_hist[i])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribuição simulada de capturas de Rhynchocyrtus sp.n.1 por método'</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Indivíduos capturados'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequência'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/condicional_rhynchocyrtus.png'</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="aplicação-do-teorema-de-bayes" class="level1">
@@ -390,12 +529,49 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 </li>
 <li><span class="math inline">\(P(\text{Winkler}\mid E) ≈ 0.02 \ (2\%)\)</span></li>
 </ul>
+<section id="cálculo-bayesiano-em-python" class="level2">
+<h2 class="anchored" data-anchor-id="cálculo-bayesiano-em-python">Cálculo Bayesiano em Python</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>P_E_H <span class="op">=</span> [<span class="fl">0.1716</span>, <span class="fl">0.5477</span>, <span class="fl">0.1720</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>P_H <span class="op">=</span> [<span class="fl">0.9142</span>, <span class="fl">0.0647</span>, <span class="fl">0.0213</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>metodos <span class="op">=</span> [<span class="st">'Pitfall'</span>, <span class="st">'Aspirador'</span>, <span class="st">'Winkler'</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>numeradores <span class="op">=</span> [a<span class="op">*</span>b <span class="cf">for</span> a,b <span class="kw">in</span> <span class="bu">zip</span>(P_E_H, P_H)]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>denominador <span class="op">=</span> <span class="bu">sum</span>(numeradores)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>P_H_E <span class="op">=</span> [n<span class="op">/</span>denominador <span class="cf">for</span> n <span class="kw">in</span> numeradores]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m, p <span class="kw">in</span> <span class="bu">zip</span>(metodos, P_H_E):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'P(</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">|E) = </span><span class="sc">{</span>p<span class="sc">:.2%}</span><span class="ss">'</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="conclusão" class="level1">
 <h1>Conclusão</h1>
 <p>A integração entre probabilidade condicional e Teorema de Bayes permite avaliar de forma mais completa a eficiência dos métodos de captura.</p>
 <p>No caso de <em>Lepidocyrtinus paraibensis</em>, o método <strong>Pitfall</strong> apresentou a maior probabilidade posterior de captura (~85%).</p>
 <p>Apesar de o método Winkler ter exibido proporção relativa alta da espécie, sua baixa representatividade reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente, considerando tanto a abundância absoluta quanto a análise probabilística.</p>
+<section id="simulação-monte-carlo-para-planejamento-amostral" class="level2">
+<h2 class="anchored" data-anchor-id="simulação-monte-carlo-para-planejamento-amostral">Simulação Monte Carlo para planejamento amostral</h2>
+<p>A seguir, uma simulação para estimar quantas espécies podem ser detectadas pelo método Pitfall, considerando a probabilidade observada:</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras%20de%20prob%20I/graficos/montecarlo_scatter.png" class="img-fluid figure-img"></p>
+<figcaption>Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)</figcaption>
+</figure>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n_especies <span class="op">=</span> <span class="dv">43</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>prob_pitfall <span class="op">=</span> <span class="fl">0.8837</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n_sim <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>amostras <span class="op">=</span> np.random.binomial(n_especies, prob_pitfall, n_sim)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>valores, contagem <span class="op">=</span> np.unique(amostras, return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>scatter <span class="op">=</span> plt.scatter(valores, contagem, c<span class="op">=</span>contagem, cmap<span class="op">=</span><span class="st">'YlGn'</span>, s<span class="op">=</span><span class="dv">80</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.colorbar(scatter, label<span class="op">=</span><span class="st">'Frequência'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Número de espécies detectadas'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequência'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/montecarlo_scatter.png'</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Esse gráfico auxilia no planejamento amostral, mostrando a variabilidade esperada na detecção de espécies.</p>
 <hr>
 <p>Este estudo também demonstra como a análise probabilística fornece bases científicas para a escolha de métodos de coleta de colêmbolos, indo além da observação empírica.</p>
 <p>Através de diferentes abordagens estatísticas, foi possível estabelecer um <strong>guia metodológico preciso</strong>:</p>
@@ -418,6 +594,7 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 </li>
 <li><strong>Planejamento amostral</strong> cientificamente embasado</li>
 </ul>
+</section>
 </section>
 
 </main>
@@ -447,12 +624,12 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiada");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiada");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -3,13 +3,21 @@ title: "Análise Probabilística da Eficiência de Métodos de Captura de Collem
 author: 
   - "Vivian Germano da Silva"
   - "Aila Soares Ferreira"
-date: "1 de outubro de 2025"
-format: html
+format: 
+  html:
+    toc: true
+    toc-title: "Sumário"
+    toc-depth: 3
+    code-fold: true
+    lang: "pt-BR"
+jupyter: python3
 ---
 
 <center>
 *Universidade Federal da Paraíba*  
-*Disciplina: Probabilidade I*
+*Disciplina: Probabilidade I*  
+
+*1 de outubro de 2025*
 </center>
 
 # Introdução
@@ -18,6 +26,11 @@ Este trabalho compara a eficiência de três métodos de amostragem de colêmbol
 
 **O objetivo deste estudo** é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à **Ecologia e Conservação da fauna de solo (Collembola)**, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.  
 
+<br>
+
+![Diagrama venn ](figuras%20de%20prob%20I/graficos/diagrama.png)
+
+<br>
 As fórmulas fundamentais utilizadas são:  
 
 ### Probabilidade condicional (verossimilhança)
@@ -113,6 +126,8 @@ $$
 P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 $$  
 
+<br>
+
 ## 1) *Lepidocyrtus* sp.n.5 (Total = 4.584)
 
 | Método | $N_E$ | $P(E\mid H)$ |
@@ -120,6 +135,33 @@ $$
 | Pitfall | 4562 | 4562/13469 ≈ 0.3387 |
 | Aspirador | 20 | 20/953 ≈ 0.0210 |
 | Winkler | 2 | 2/314 ≈ 0.00064 |
+
+<br>
+
+![Distribuição simulada de capturas de Lepidocyrtus sp.n.5 por método](figuras%20de%20prob%20I/graficos/condicional_lepidocyrtus.png)
+
+```python
+# Lepidocyrtus sp.n.5
+import numpy as np
+import matplotlib.pyplot as plt
+metodos = ['Pitfall', 'Aspirador', 'Winkler']
+totais = [13469, 953, 314]
+especie = [4562, 20, 2]
+prob = [4562/13469, 20/953, 2/314]
+n_sim = 10000
+cores_mata_hist = ['mediumseagreen', 'burlywood', 'olivedrab']
+simulados = [np.random.binomial(t, p, n_sim) for t, p in zip(totais, prob)]
+plt.figure(figsize=(10,3))
+for i, m in enumerate(metodos):
+    plt.hist(simulados[i], bins=30, alpha=0.7, label=m, color=cores_mata_hist[i])
+plt.title('Distribuição simulada de capturas de Lepidocyrtus sp.n.5 por método')
+plt.xlabel('Indivíduos capturados')
+plt.ylabel('Frequência')
+plt.legend()
+plt.tight_layout()
+plt.savefig('graficos/condicional_lepidocyrtus.png')
+plt.close()
+```
 
 ## 2) *Lepidocyrtinus paraibensis* (Total = 2.888)
 
@@ -129,6 +171,27 @@ $$
 | Aspirador | 522 | 522/953 ≈ 0.5477 |
 | Winkler | 54 | 54/314 ≈ 0.1720 |
 
+<br>
+
+![Distribuição simulada de capturas de Lepidocyrtinus paraibensis por método](figuras%20de%20prob%20I/graficos/condicional_paraibensis.png)
+
+```python
+# Lepidocyrtinus paraibensis
+especie = [2312, 522, 54]
+prob = [2312/13469, 522/953, 54/314]
+simulados = [np.random.binomial(t, p, n_sim) for t, p in zip(totais, prob)]
+plt.figure(figsize=(10,3))
+for i, m in enumerate(metodos):
+    plt.hist(simulados[i], bins=30, alpha=0.7, label=m, color=cores_mata_hist[i])
+plt.title('Distribuição simulada de capturas de Lepidocyrtinus paraibensis por método')
+plt.xlabel('Indivíduos capturados')
+plt.ylabel('Frequência')
+plt.legend()
+plt.tight_layout()
+plt.savefig('graficos/condicional_paraibensis.png')
+plt.close()
+```
+
 ## 3) *Rhynchocyrtus* sp.n.1 (Total = 200)
 
 | Método | $N_E$ | $P(E\mid H)$ |
@@ -136,6 +199,27 @@ $$
 | Pitfall | 164 | 164/13469 ≈ 0.0122 |
 | Aspirador | 33 | 33/953 ≈ 0.0346 |
 | Winkler | 3 | 3/314 ≈ 0.0096 |
+
+<br>
+
+![Distribuição simulada de capturas de Rhynchocyrtus sp.n.1 por método](figuras%20de%20prob%20I/graficos/condicional_rhynchocyrtus.png)
+
+```python
+# Rhynchocyrtus sp.n.1
+especie = [164, 33, 3]
+prob = [164/13469, 33/953, 3/314]
+simulados = [np.random.binomial(t, p, n_sim) for t, p in zip(totais, prob)]
+plt.figure(figsize=(10,3))
+for i, m in enumerate(metodos):
+    plt.hist(simulados[i], bins=30, alpha=0.7, label=m, color=cores_mata_hist[i])
+plt.title('Distribuição simulada de capturas de Rhynchocyrtus sp.n.1 por método')
+plt.xlabel('Indivíduos capturados')
+plt.ylabel('Frequência')
+plt.legend()
+plt.tight_layout()
+plt.savefig('graficos/condicional_rhynchocyrtus.png')
+plt.close()
+```
 
 # Aplicação do Teorema de Bayes
 
@@ -157,6 +241,19 @@ Posterior para cada método:
 - $P(\text{Aspirador}\mid E) ≈ 0.18 \ (18\%)$  
 - $P(\text{Winkler}\mid E) ≈ 0.02 \ (2\%)$  
 
+## Cálculo Bayesiano em Python
+
+```python
+P_E_H = [0.1716, 0.5477, 0.1720]
+P_H = [0.9142, 0.0647, 0.0213]
+metodos = ['Pitfall', 'Aspirador', 'Winkler']
+numeradores = [a*b for a,b in zip(P_E_H, P_H)]
+denominador = sum(numeradores)
+P_H_E = [n/denominador for n in numeradores]
+for m, p in zip(metodos, P_H_E):
+    print(f'P({m}|E) = {p:.2%}')
+```
+
 # Conclusão
 
 A integração entre probabilidade condicional e Teorema de Bayes permite avaliar de forma mais completa a eficiência dos métodos de captura.  
@@ -164,6 +261,34 @@ A integração entre probabilidade condicional e Teorema de Bayes permite avalia
 No caso de *Lepidocyrtinus paraibensis*, o método **Pitfall** apresentou a maior probabilidade posterior de captura (~85%).  
 
 Apesar de o método Winkler ter exibido proporção relativa alta da espécie, sua baixa representatividade reduziu sua influência na análise final. Assim, o método Pitfall se destaca como o mais eficiente, considerando tanto a abundância absoluta quanto a análise probabilística.  
+
+## Simulação Monte Carlo para planejamento amostral
+
+A seguir, uma simulação para estimar quantas espécies podem ser detectadas pelo método Pitfall, considerando a probabilidade observada:
+
+<br>
+
+![Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)](figuras%20de%20prob%20I/graficos/montecarlo_scatter.png)
+
+```python
+n_especies = 43
+prob_pitfall = 0.8837
+n_sim = 10000
+amostras = np.random.binomial(n_especies, prob_pitfall, n_sim)
+valores, contagem = np.unique(amostras, return_counts=True)
+plt.figure(figsize=(8,4))
+scatter = plt.scatter(valores, contagem, c=contagem, cmap='YlGn', s=80, edgecolor='black')
+plt.colorbar(scatter, label='Frequência')
+plt.title('Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)')
+plt.xlabel('Número de espécies detectadas')
+plt.ylabel('Frequência')
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.tight_layout()
+plt.savefig('graficos/montecarlo_scatter.png')
+plt.close()
+```
+
+Esse gráfico auxilia no planejamento amostral, mostrando a variabilidade esperada na detecção de espécies.
 
 ---
 
@@ -181,5 +306,4 @@ A **importância crucial destes testes** está em substituir suposições por da
 
 - **Otimização de recursos** humanos e financeiros  
 - **Maximização da detecção** de espécies  
-- **Planejamento amostral** cientificamente embasado  
-
+- **Planejamento amostral** cientificamente embasado
