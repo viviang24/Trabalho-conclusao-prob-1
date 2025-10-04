@@ -26,7 +26,7 @@ Inclui gráficos de distribuição de capturas por espécie e planejamento amost
 ## Visualização
 
 Abra o arquivo HTML gerado pelo Quarto para ver o relatório completo.  
-**Link para visualização online:** [https://viviang24.github.io/Trabalho-conclusao-prob-1/](#)
+**Link para visualização online:** [https://viviang24.github.io/Trabalho-conclusao-prob-1/]
 
 ---
 
