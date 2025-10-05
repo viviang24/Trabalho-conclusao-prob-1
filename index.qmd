@@ -22,7 +22,7 @@ jupyter: python3
 
 # Introdução
 
-Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — **Pitfall**, **Aspirador** e **Winkler** — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e Simulação Monte Carlo para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.  
+Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — **Pitfall**, **Aspirador** e **Winkler** — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de Probabilidade Condicional e Simulação Monte Carlo para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.  
 
 **O objetivo deste estudo** é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à **Ecologia e Conservação da fauna de solo (Collembola)**, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.  
 
@@ -147,6 +147,8 @@ $$
 
 ![Distribuição simulada de capturas de Lepidocyrtus sp.n.5 por método](figuras%20de%20prob%20I/graficos/condicional_lepidocyrtus.png)
 
+<details>
+<summary>Código: Gráfico em python Lepidocyrtus sp.n.5</summary>
 ```python
 # Lepidocyrtus sp.n.5
 import numpy as np
@@ -169,6 +171,7 @@ plt.tight_layout()
 plt.savefig('graficos/condicional_lepidocyrtus.png')
 plt.close()
 ```
+<details>
 
 ## 2) *Lepidocyrtinus paraibensis* (Total = 2.888)
 
@@ -182,6 +185,7 @@ plt.close()
 
 ![Distribuição simulada de capturas de Lepidocyrtinus paraibensis por método](figuras%20de%20prob%20I/graficos/condicional_paraibensis.png)
 
+<details> <summary>Código: Gráfico python Lepidocyrtinus</summary>
 ```python
 # Lepidocyrtinus paraibensis
 especie = [2312, 522, 54]
@@ -198,6 +202,7 @@ plt.tight_layout()
 plt.savefig('graficos/condicional_paraibensis.png')
 plt.close()
 ```
+<details>
 
 ## 3) *Rhynchocyrtus* sp.n.1 (Total = 200)
 
@@ -211,6 +216,7 @@ plt.close()
 
 ![Distribuição simulada de capturas de Rhynchocyrtus sp.n.1 por método](figuras%20de%20prob%20I/graficos/condicional_rhynchocyrtus.png)
 
+<details> <summary>Código: Gráfico python Rhynchocyrtus sp.n.1</summary>
 ```python
 # Rhynchocyrtus sp.n.1
 especie = [164, 33, 3]
@@ -227,6 +233,7 @@ plt.tight_layout()
 plt.savefig('graficos/condicional_rhynchocyrtus.png')
 plt.close()
 ```  
+<details>
 
 ## Simulação Monte Carlo para planejamento amostral
 
@@ -236,6 +243,7 @@ A seguir, uma simulação para estimar quantas espécies podem ser detectadas pe
 
 ![Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)](figuras%20de%20prob%20I/graficos/montecarlo_scatter.png)
 
+<details> <summary>Código: Gráfico python Simulação Monte Carlo</summary>
 ```python
 n_especies = 43
 prob_pitfall = 0.8837
@@ -253,6 +261,7 @@ plt.tight_layout()
 plt.savefig('graficos/montecarlo_scatter.png')
 plt.close()
 ```
+<details>
 
 O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.
 

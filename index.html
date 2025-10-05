@@ -168,7 +168,7 @@ window.Quarto = {
 </center>
 <section id="introdução" class="level1">
 <h1>Introdução</h1>
-<p>Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — <strong>Pitfall</strong>, <strong>Aspirador</strong> e <strong>Winkler</strong> — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de probabilidade condicional e Simulação Monte Carlo para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.</p>
+<p>Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — <strong>Pitfall</strong>, <strong>Aspirador</strong> e <strong>Winkler</strong> — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de Probabilidade Condicional e Simulação Monte Carlo para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.</p>
 <p><strong>O objetivo deste estudo</strong> é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à <strong>Ecologia e Conservação da fauna de solo (Collembola)</strong>, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.</p>
 <p><br></p>
 <p>As fórmulas fundamentais utilizadas são:</p>
@@ -379,6 +379,10 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <figcaption>Distribuição simulada de capturas de Lepidocyrtus sp.n.5 por método</figcaption>
 </figure>
 </div>
+<details>
+<summary>
+Código: Gráfico em python Lepidocyrtus sp.n.5
+</summary>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lepidocyrtus sp.n.5</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -399,7 +403,8 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/condicional_lepidocyrtus.png'</span>)</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+<details>
+</details></details></section>
 <section id="lepidocyrtinus-paraibensis-total-2.888" class="level2">
 <h2 class="anchored" data-anchor-id="lepidocyrtinus-paraibensis-total-2.888">2) <em>Lepidocyrtinus paraibensis</em> (Total = 2.888)</h2>
 <table class="caption-top table">
@@ -435,6 +440,10 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <figcaption>Distribuição simulada de capturas de Lepidocyrtinus paraibensis por método</figcaption>
 </figure>
 </div>
+<details>
+<summary>
+Código: Gráfico python Lepidocyrtinus
+</summary>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lepidocyrtinus paraibensis</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>especie <span class="op">=</span> [<span class="dv">2312</span>, <span class="dv">522</span>, <span class="dv">54</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> [<span class="dv">2312</span><span class="op">/</span><span class="dv">13469</span>, <span class="dv">522</span><span class="op">/</span><span class="dv">953</span>, <span class="dv">54</span><span class="op">/</span><span class="dv">314</span>]</span>
@@ -449,7 +458,8 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/condicional_paraibensis.png'</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+<details>
+</details></details></section>
 <section id="rhynchocyrtus-sp.n.1-total-200" class="level2">
 <h2 class="anchored" data-anchor-id="rhynchocyrtus-sp.n.1-total-200">3) <em>Rhynchocyrtus</em> sp.n.1 (Total = 200)</h2>
 <table class="caption-top table">
@@ -485,6 +495,10 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <figcaption>Distribuição simulada de capturas de Rhynchocyrtus sp.n.1 por método</figcaption>
 </figure>
 </div>
+<details>
+<summary>
+Código: Gráfico python Rhynchocyrtus sp.n.1
+</summary>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rhynchocyrtus sp.n.1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>especie <span class="op">=</span> [<span class="dv">164</span>, <span class="dv">33</span>, <span class="dv">3</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> [<span class="dv">164</span><span class="op">/</span><span class="dv">13469</span>, <span class="dv">33</span><span class="op">/</span><span class="dv">953</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">314</span>]</span>
@@ -499,7 +513,8 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/condicional_rhynchocyrtus.png'</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+<details>
+</details></details></section>
 <section id="simulação-monte-carlo-para-planejamento-amostral" class="level2">
 <h2 class="anchored" data-anchor-id="simulação-monte-carlo-para-planejamento-amostral">Simulação Monte Carlo para planejamento amostral</h2>
 <p>A seguir, uma simulação para estimar quantas espécies podem ser detectadas pelo método Pitfall, considerando a probabilidade observada:</p>
@@ -510,6 +525,10 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <figcaption>Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)</figcaption>
 </figure>
 </div>
+<details>
+<summary>
+Código: Gráfico python Simulação Monte Carlo
+</summary>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_especies <span class="op">=</span> <span class="dv">43</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>prob_pitfall <span class="op">=</span> <span class="fl">0.8837</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>n_sim <span class="op">=</span> <span class="dv">10000</span></span>
@@ -525,6 +544,7 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/montecarlo_scatter.png'</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
 <p>O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.</p>
 <ul>
 <li><p>Validação Empírica: O ponto de maior frequência (o mais escuro e alto) está concentrado entre 38 e 39 espécies detectadas. <strong>Isso valida a observação original da tese (38 espécies) como o resultado mais provável em coletas futuras.</strong></p></li>
@@ -532,7 +552,7 @@ P(E\mid H) = \frac{N_{E \ \text{no método}}}{N_{\text{método}}}
 <li><p>Baixo Risco de Falha: A probabilidade de o Pitfall falhar e detectar um número muito baixo de espécies (ex: menos de 34) é extremamente baixa, reforçando a confiabilidade do método.</p></li>
 </ul>
 <hr>
-</section>
+</details></details></section>
 </section>
 <section id="conclusão" class="level1">
 <h1>Conclusão</h1>
