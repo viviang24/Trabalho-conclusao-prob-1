@@ -9,7 +9,7 @@
 
 ## Descrição
 
-Estudo comparando a eficiência de três métodos de captura de colêmbolos — **Pitfall**, **Aspirador** e **Winkler** — usando **probabilidade condicional**, **Teorema de Bayes** e **simulações Monte Carlo**.
+Estudo comparando a eficiência de três métodos de captura de colêmbolos — **Pitfall**, **Aspirador** e **Winkler** — usando **probabilidade condicional** e **simulações Monte Carlo**.
 
 Inclui gráficos de distribuição de capturas por espécie e planejamento amostral.
 
@@ -26,7 +26,7 @@ Inclui gráficos de distribuição de capturas por espécie e planejamento amost
 ## Visualização
 
 Abra o arquivo HTML gerado pelo Quarto para ver o relatório completo.  
-**Link para visualização online:** [https://viviang24.github.io/Trabalho-conclusao-prob-1/]
+**Link para visualização online:** https://viviang24.github.io/Trabalho-conclusao-prob-1/
 
 ---
 
