@@ -112,10 +112,7 @@ window.Quarto = {
     <h2 id="toc-title">Sumário</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a>
-  <ul class="collapse">
-  <li><a href="#probabilidade-condicional-verossimilhança" id="toc-probabilidade-condicional-verossimilhança" class="nav-link" data-scroll-target="#probabilidade-condicional-verossimilhança">Probabilidade condicional (verossimilhança)</a></li>
-  </ul></li>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a></li>
   <li><a href="#probabilidade-de-captura-por-método" id="toc-probabilidade-de-captura-por-método" class="nav-link" data-scroll-target="#probabilidade-de-captura-por-método">Probabilidade de Captura por Método</a>
   <ul class="collapse">
   <li><a href="#probabilidades-com-base-na-riqueza-de-espécies-presençaausência" id="toc-probabilidades-com-base-na-riqueza-de-espécies-presençaausência" class="nav-link" data-scroll-target="#probabilidades-com-base-na-riqueza-de-espécies-presençaausência">Probabilidades com base na riqueza de espécies (presença/ausência)</a></li>
@@ -170,14 +167,7 @@ window.Quarto = {
 <h1>Introdução</h1>
 <p>Este trabalho compara a eficiência de três métodos de amostragem de colêmbolos — <strong>Pitfall</strong>, <strong>Aspirador</strong> e <strong>Winkler</strong> — com base em evidências empíricas obtidas em coletas realizadas em fragmentos de Mata Atlântica na Paraíba. Aplicamos conceitos elementares de Probabilidade Condicional e Simulação Monte Carlo para avaliar a afinidade de espécies pelos métodos e, assim, indicar o método mais provável pelas capturas observadas.</p>
 <p><strong>O objetivo deste estudo</strong> é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à <strong>Ecologia e Conservação da fauna de solo (Collembola)</strong>, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.</p>
-<p><br></p>
 <p>As fórmulas fundamentais utilizadas são:</p>
-<section id="probabilidade-condicional-verossimilhança" class="level3">
-<h3 class="anchored" data-anchor-id="probabilidade-condicional-verossimilhança">Probabilidade condicional (verossimilhança)</h3>
-<p><span class="math display">\[
-P(E \mid H) = \frac{\text{número de indivíduos da espécie }E \text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
-\]</span></p>
-</section>
 </section>
 <section id="probabilidade-de-captura-por-método" class="level1">
 <h1>Probabilidade de Captura por Método</h1>
@@ -525,6 +515,12 @@ Código: Gráfico python Rhynchocyrtus sp.n.1
 <figcaption>Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)</figcaption>
 </figure>
 </div>
+<p>O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.</p>
+<ul>
+<li><p>Validação Empírica: O ponto de maior frequência (o mais escuro e alto) está concentrado entre 38 e 39 espécies detectadas. <strong>Isso valida a observação original da tese (38 espécies) como o resultado mais provável em coletas futuras.</strong></p></li>
+<li><p>Variabilidade Esperada: A maioria dos resultados simulados (a área mais densa da distribuição) concentra-se firmemente entre 36 e 41 espécies.</p></li>
+<li><p>Baixo Risco de Falha: A probabilidade de o Pitfall falhar e detectar um número muito baixo de espécies (ex: menos de 34) é extremamente baixa, reforçando a confiabilidade do método.</p></li>
+</ul>
 <details>
 <summary>
 Código: Gráfico python Simulação Monte Carlo
@@ -545,12 +541,6 @@ Código: Gráfico python Simulação Monte Carlo
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'graficos/montecarlo_scatter.png'</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
-<p>O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.</p>
-<ul>
-<li><p>Validação Empírica: O ponto de maior frequência (o mais escuro e alto) está concentrado entre 38 e 39 espécies detectadas. <strong>Isso valida a observação original da tese (38 espécies) como o resultado mais provável em coletas futuras.</strong></p></li>
-<li><p>Variabilidade Esperada: A maioria dos resultados simulados (a área mais densa da distribuição) concentra-se firmemente entre 36 e 41 espécies.</p></li>
-<li><p>Baixo Risco de Falha: A probabilidade de o Pitfall falhar e detectar um número muito baixo de espécies (ex: menos de 34) é extremamente baixa, reforçando a confiabilidade do método.</p></li>
-</ul>
 <hr>
 </details></details></section>
 </section>

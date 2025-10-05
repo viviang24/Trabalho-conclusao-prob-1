@@ -26,16 +26,8 @@ Este trabalho compara a eficiência de três métodos de amostragem de colêmbol
 
 **O objetivo deste estudo** é demonstrar, de forma prática, como conceitos de Probabilidade podem ser aplicados à **Ecologia e Conservação da fauna de solo (Collembola)**, avaliando a afinidade de espécies por diferentes métodos de captura e comparando a eficiência relativa das técnicas.  
 
-<br>
-
 As fórmulas fundamentais utilizadas são:  
-
-### Probabilidade condicional (verossimilhança)
-
-$$
-P(E \mid H) = \frac{\text{número de indivíduos da espécie }E \text{ capturados pelo método }H}{\text{total de indivíduos coletados pelo método }H}
-$$  
-  
+ 
 # Probabilidade de Captura por Método
 
 ## Probabilidades com base na riqueza de espécies (presença/ausência)
@@ -243,6 +235,14 @@ A seguir, uma simulação para estimar quantas espécies podem ser detectadas pe
 
 ![Distribuição simulada de espécies detectadas pelo Pitfall (Monte Carlo)](figuras%20de%20prob%20I/graficos/montecarlo_scatter.png)
 
+O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.
+
+- Validação Empírica: O ponto de maior frequência (o mais escuro e alto) está concentrado entre 38 e 39 espécies detectadas. **Isso valida a observação original da tese (38 espécies) como o resultado mais provável em coletas futuras.**
+
+- Variabilidade Esperada: A maioria dos resultados simulados (a área mais densa da distribuição) concentra-se firmemente entre 36 e 41 espécies.
+
+- Baixo Risco de Falha: A probabilidade de o Pitfall falhar e detectar um número muito baixo de espécies (ex: menos de 34) é extremamente baixa, reforçando a confiabilidade do método.
+
 <details> <summary>Código: Gráfico python Simulação Monte Carlo</summary>
 ```python
 n_especies = 43
@@ -262,14 +262,6 @@ plt.savefig('graficos/montecarlo_scatter.png')
 plt.close()
 ```
 <details>
-
-O gráfico de simulação Monte Carlo (10.000 repetições) é uma ferramenta essencial para o planejamento amostral, pois utiliza a probabilidade empírica de 88% de detecção de espécies pelo Pitfall.
-
-- Validação Empírica: O ponto de maior frequência (o mais escuro e alto) está concentrado entre 38 e 39 espécies detectadas. **Isso valida a observação original da tese (38 espécies) como o resultado mais provável em coletas futuras.**
-
-- Variabilidade Esperada: A maioria dos resultados simulados (a área mais densa da distribuição) concentra-se firmemente entre 36 e 41 espécies.
-
-- Baixo Risco de Falha: A probabilidade de o Pitfall falhar e detectar um número muito baixo de espécies (ex: menos de 34) é extremamente baixa, reforçando a confiabilidade do método.
 
 ---
 # Conclusão
